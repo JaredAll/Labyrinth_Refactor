@@ -26,21 +26,15 @@ public:
    * @param x the x coordinate
    * @param y the y coordinate
    */
-  Sprite( std::string image_path,
-          int x,
+  Sprite( int x,
           int y,
           SDL_Texture* sprite_texture );
-
-  /**
-   * Destructor
-   */
-  ~Sprite();
 
   /**
    * method to change source rectangle
    * @param source the new source
    */
-  void set_source( SDL_Rect *source );
+  void set_clip( SDL_Rect *source );
 
   /**
    * method to change destination rectangle
@@ -48,31 +42,6 @@ public:
    */
   void set_destination( SDL_Rect *destination );
 
-  /**
-   * method to draw sprite
-   * @param renderer the pointer to renderer
-   */
-  void draw( SDL_Renderer* renderer );
-
-  /**
-   * method to draw sprite
-   * @param renderer the pointer to renderer
-   * @param destination the destination to be drawn to
-   */
-  void draw( SDL_Rect *destination );
-
-  /**
-   * method to draw mirror sprite
-   * @param renderer the pointer to the renderer
-   */
-  void flip_draw();
-
-  /**
-   * method to draw mirror sprite
-   * @param renderer the pointer to the renderer
-   * @param destination the destination for sprite
-   */
-  void flip_draw( SDL_Rect *destination );
   /** 
    * method to change sprite position
    * @param new_x the new x coordinate
@@ -85,17 +54,12 @@ public:
    * @param new_x the new x coordinate
    */
   void set_position( int new_x );
-  
-  /** 
-   * method to reset sprite position
-   */
-  void reset_position();
 
   /**
    * method to reset sprite position with offset
    * @param offset the offset
    */
-  void reset_position( int offset );
+  void reset_position();
 
   /** 
    * method to get sprite x position
@@ -106,29 +70,31 @@ public:
    * method to get sprite y position
    */
   int get_y();
+
+  int get_h();
+
+  int get_w();
   
-  /**
-   * get the sprite's height
-   */
-  int get_height();
+  SDL_Texture* getTexture();
 
-  /**
-   * get the sprite's width
-   */
-  int get_width();
+  SDL_Rect* getDestination();
 
+  SDL_Rect* getClip();
 
 private:
 
+  void initialize_destination();
+
+  void initialize_dimensions();
+
   SDL_Texture *sprite_texture;
-  SDL_Rect *source;
+  SDL_Rect *clip;
   SDL_Renderer *renderer;
   SDL_Rect *destination;
-  int initial_x;
-  int initial_y;
   int x;
   int y;
-
+  int h;
+  int w;
 };
 
 

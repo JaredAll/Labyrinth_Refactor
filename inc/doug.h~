@@ -1,0 +1,9 @@
+#ifndef DOUG_CONFIG_H
+#define DOUG_CONFIG_H
+
+class DougConfig
+{
+  public 
+}
+
+#endif

@@ -6,7 +6,13 @@
 class RenderComponent
 {
 public:
-  virtual void draw( SDL_Renderer* renderer ) = 0;
+  
+  virtual SDL_Texture* getTexture() = 0;
+
+  virtual SDL_Rect* getDestination() = 0;
+
+  virtual SDL_Rect* getClip() = 0;
+  
 };
 
 #endif

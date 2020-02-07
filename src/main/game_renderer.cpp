@@ -2,7 +2,6 @@
 
 GameRenderer::GameRenderer( SDL_Window* win )
 {
-  //create renderer
   SDL_Renderer *ren =
     SDL_CreateRenderer(win, -1,
                        SDL_RENDERER_ACCELERATED
@@ -16,15 +15,26 @@ GameRenderer::GameRenderer( SDL_Window* win )
   renderer = ren;
 }
 
-void GameRenderer::render( std::vector<GameComponent*> gameComponents )
+void GameRenderer::render( std::vector<RenderComponent*> renderComponents )
 {
-  for( uint i = 0; i < gameComponents.size(); i++ )
+  SDL_RenderClear( renderer );
+  for( uint i = 0; i < renderComponents.size(); i++ )
   {
-    gameComponents.at( i ) -> draw( renderer );
+    render( renderComponents.at( i ) );
   }
+  SDL_RenderPresent( renderer );
 }
 
-SDL_Texture* GameRenderer::load_texture( std::string image_path )
+SDL_Texture* GameRenderer::create_texture( std::string image_path )
 {
-  return load_texture( image_path, renderer );
+  return loadTexture( image_path, renderer );
+}
+
+void GameRenderer::render( RenderComponent* renderComponent )
+{
+  SDL_Texture* texture = renderComponent -> getTexture();
+  SDL_Rect* destination = renderComponent -> getDestination();
+  SDL_Rect* source = renderComponent -> getClip();
+
+  renderTexture( texture, renderer, destination, source );
 }

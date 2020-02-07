@@ -26,28 +26,11 @@ public:
    * @param full_body the full body sprite
    * @param torso the torso sprite
    */
-  Character( string name,
-             Sprite *full_body, Sprite *torso, uint force,
-             uint diversion, uint stealth, uint num_walking_sprites,
-             uint num_talking_sprites );
+  Character( vector< SDL_Rect* > walking_clips,
+             vector< SDL_Rect* > talking_clips );
 
   void update();
 
-  /**
-   * Destructor
-   */
-  ~Character();
-
-  /**
-   * set character happy expression 
-   */
-  void happy();
-  
-  /**
-   * set character gasp expression
-   */
-  void gasp();
-  
   /**
    * make the character walk left
    * @param speed the speed that the character walks
@@ -61,16 +44,6 @@ public:
    * @param count the characters walking cycle count
    */
   void walk_right( uint speed, uint count );
-
-  /**
-   * make the character jump
-   */
-  void jump( int y_velocity );
-
-  /**
-   * make the character jump laterally
-   */
-  void jump( int x_velocity, int y_velocity );
 
   /**
    * make the character stand
@@ -96,12 +69,6 @@ public:
    * get the characters coordinates
    */
   vector< int > get_position();
-
-  /**
-   * make NPCs follow the character
-   */
-  void follow( Character* leader, uint speed, uint count );
-
   
   /**
    * update characters position
@@ -132,17 +99,6 @@ public:
    * set stage position
    */
   void set_stage_pos( int screen_pos, int pos );
-
-  /**
-   * recruit a character
-   */
-  void set_recruited();
-
-  /**
-   * determine if character has been recruited
-   */
-  bool is_recruited();
-
 
 private:
 

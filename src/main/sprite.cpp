@@ -1,45 +1,35 @@
 #include "sprite.h"
 #include "easy_sdl.h"
 
-Sprite::Sprite( std::string image_path,
-                int param_x,
+Sprite::Sprite( int param_x,
                 int param_y,
                 SDL_Texture* sprite_texture )
   : x( param_x ), y( param_y )
 {
-  source = NULL;
-  destination = new SDL_Rect();
   this -> sprite_texture = sprite_texture;
-  initial_x = x;
-  initial_y = y;
+  clip = NULL;
+  destination = new SDL_Rect();
+  initialize_dimensions();
+  initialize_destination();
 }
 
-Sprite::~Sprite()
+void Sprite::initialize_destination()
 {
+  destination -> x = x;
+  destination -> y = y;
+  destination -> h = h;
+  destination -> w = w;
 }
 
-int Sprite::get_height()
+void Sprite::initialize_dimensions()
 {
-  int sprite_height = 0;
-  int sprite_width = 0;
-  SDL_QueryTexture( sprite_texture, NULL, NULL, &sprite_width,
-                    &sprite_height );
-  return sprite_height;
+  SDL_QueryTexture( sprite_texture, NULL, NULL, &w,
+                    &h );
 }
 
-int Sprite::get_width()
+void Sprite::set_clip( SDL_Rect *param_clip )
 {
-  int sprite_height = 0;
-  int sprite_width = 0;
-  SDL_QueryTexture( sprite_texture, NULL, NULL, &sprite_width,
-                    &sprite_height );
-  return sprite_width;
-}
-
-
-void Sprite::set_source( SDL_Rect *param_source )
-{
-  source = param_source;
+  clip = param_clip;
 }
 
 void Sprite::set_position( int new_x, int new_y )
@@ -53,24 +43,34 @@ void Sprite::set_position( int new_x )
   x = new_x;
 }
 
-void Sprite::draw( SDL_Rect *destination )
+void Sprite::reset_position()
 {
-  renderTexture( sprite_texture, renderer, destination, source );
+  
 }
 
-void Sprite::draw( SDL_Renderer* renderer )
-{  
-  renderTexture( sprite_texture, renderer, x, y, source, destination );
+SDL_Texture* Sprite::getTexture()
+{
+  return sprite_texture;
 }
 
-void Sprite::flip_draw()
+SDL_Rect* Sprite::getDestination()
 {
-  renderTextureFlip( sprite_texture, renderer, x, y, source );
+  return destination;
 }
 
-void Sprite::flip_draw( SDL_Rect *destination )
+SDL_Rect* Sprite::getClip()
 {
-  renderTextureFlip( sprite_texture, renderer, destination, source );
+  return clip;
+}
+
+int Sprite::get_h()
+{
+  return h;
+}
+
+int Sprite::get_w()
+{
+  return w;
 }
 
 int Sprite::get_x()
@@ -81,17 +81,4 @@ int Sprite::get_x()
 int Sprite::get_y()
 {
   return y;
-}
-
-
-void Sprite::reset_position()
-{
-  x = initial_x;
-  y = initial_y;
-}
-
-void Sprite::reset_position( int new_x )
-{
-  x = initial_x + new_x;
-  y = initial_y;
 }

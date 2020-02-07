@@ -6,10 +6,6 @@
 class GameComponent
 {
 public:
-  virtual void draw( SDL_Renderer* renderer )
-  {
-    renderComponent -> draw( renderer );
-  }
 
   virtual void update() = 0;
 
@@ -17,6 +13,8 @@ public:
   {
     renderComponent = component;
   }
+
+  virtual RenderComponent* get_render_component() = 0;
 
 private:
   RenderComponent* renderComponent;

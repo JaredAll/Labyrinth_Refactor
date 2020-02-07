@@ -13,14 +13,18 @@
 class GameRenderer
 {
 public:
+  
   GameRenderer( SDL_Window* win );
 
-  void render( std::vector<GameComponent*> gameComponents );
+  void render( std::vector<RenderComponent*> gameComponents );
 
-  SDL_Texture* load_texture( std::string image_path );
+  SDL_Texture* create_texture( std::string image_path );
 
 private:
+
   SDL_Renderer* renderer;
+
+  void render( RenderComponent* renderComponent );
 };
 
 #endif

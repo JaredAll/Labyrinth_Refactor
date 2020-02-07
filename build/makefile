@@ -6,23 +6,23 @@ SDL_INCLUDE = -I/usr/include/SDL2
 INC_INCLUDE = -I../inc
 CXX_FLAGS = -Werror -pedantic-errors -O0 -Wno-c++98-compat-pedantic -Wno-padded -std=c++11 $(SDL_INCLUDE) $(INC_INCLUDE) $(FAKEIT_INCLUDE)
 LINKER_FLAGS = $(SDL_LIB) $(TEST_LIB)
-OBJ_FILES = sprite.o sprite_layer.o background.o character.o conversation.o scene.o game.o script.o sceneJunction.o text_box.o panel.o interaction.o easy_sdl.o state.o walking_state.o game_renderer.o
+OBJ_FILES = sprite.o easy_sdl.o game_renderer.o game.o character.o
 TEST_OBJ_FILES = test_background.o
 VPATH = ../src/test:../src/main
 
-all: sketch_1 tests
+all: Labyrinth tests
 
 %.o: %.cpp
 	$(CXX) $(CXX_FLAGS) -c $<
 
-sketch_1: $(OBJ_FILES) sketch_1.o
-	$(CXX) $(LINKER_FLAGS) -o sketch_1 $(OBJ_FILES) sketch_1.o
+Labyrinth: $(OBJ_FILES) Labyrinth.o
+	$(CXX) $(LINKER_FLAGS) -o Labyrinth $(OBJ_FILES) Labyrinth.o
 
 tests: $(TEST_OBJ_FILES)
 	$(CXX) $(LINKER_FLAGS) -o tests $(TEST_OBJ_FILES) $(OBJ_FILES)
 
 clean:
-	rm *.o && rm sketch_1 && rm *tests
+	rm *.o && rm Labyrinth && rm *tests
 
 test:
 	./tests
