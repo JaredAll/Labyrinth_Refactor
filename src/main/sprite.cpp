@@ -3,10 +3,11 @@
 
 Sprite::Sprite( int param_x,
                 int param_y,
-                SDL_Texture* sprite_texture )
-  : x( param_x ), y( param_y )
+                SDL_Texture* param_sprite_texture )
+  : x( param_x ),
+    y( param_y ),
+    sprite_texture( param_sprite_texture )
 {
-  this -> sprite_texture = sprite_texture;
   clip = NULL;
   destination = new SDL_Rect();
   initialize_dimensions();
@@ -30,6 +31,11 @@ void Sprite::initialize_dimensions()
 void Sprite::set_clip( SDL_Rect *param_clip )
 {
   clip = param_clip;
+}
+
+void Sprite::set_destination( SDL_Rect* param_destination )
+{
+  destination = param_destination;
 }
 
 void Sprite::set_position( int new_x, int new_y )

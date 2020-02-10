@@ -9,14 +9,14 @@ public:
 
   virtual void update() = 0;
 
-  void setRenderComponent( RenderComponent* component )
+  virtual void setRenderComponent( RenderComponent* component )
   {
     renderComponent = component;
   }
 
   virtual RenderComponent* get_render_component() = 0;
 
-private:
+protected:
   RenderComponent* renderComponent;
 };
 

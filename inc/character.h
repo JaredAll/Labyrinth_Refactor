@@ -26,7 +26,9 @@ public:
    * @param full_body the full body sprite
    * @param torso the torso sprite
    */
-  Character( vector< SDL_Rect* > walking_clips,
+  Character( Sprite* body,
+             vector< SDL_Rect* > walking_clips,
+             Sprite* face,
              vector< SDL_Rect* > talking_clips );
 
   void update();
@@ -100,6 +102,10 @@ public:
    */
   void set_stage_pos( int screen_pos, int pos );
 
+  RenderComponent* get_render_component();
+
+  void setRenderComponent( RenderComponent* renderComponent );
+
 private:
 
   string name;
@@ -114,6 +120,7 @@ private:
 
   Sprite *full_body;
   vector< SDL_Rect* > walking_clips;
+  SDL_Rect* current_clip;
   uint stride;
   
   Sprite *torso;

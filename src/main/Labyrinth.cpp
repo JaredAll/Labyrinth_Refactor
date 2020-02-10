@@ -12,26 +12,17 @@ int main( int argc, char* argv[] )
   Game* labyrinth = new Game();
   labyrinth -> initialize();
 
-  GameRenderer* renderer = labyrinth -> get_renderer();
+  Character* doug = labyrinth -> create_character( doug_config );
 
-  SDL_Texture* sprite_texture =
-    renderer -> create_texture( doug.sprite_sheet_resource );
+  vector< GameComponent* > components;
+  components.push_back( doug );
 
-  Sprite* doug_s =
-    new Sprite( doug.image_x, doug.image_y,
-                sprite_texture );
+  uint milliseconds = 300;
 
-  doug_s -> set_position(
-    doug.image_x, doug.image_y - doug_s -> get_h() );
-
-  vector< RenderComponent* > components;
-  components.push_back( doug_s );
-
-  uint milliseconds = 500;
-
-  for( uint i = 0; i < 4; i++ )
+  for( uint i = 0; i < 20; i++ )
   {
-    renderer -> render( components );
+    labyrinth -> render( components );
+    labyrinth -> update( components );
     usleep( milliseconds * 1000 );
   }
 }

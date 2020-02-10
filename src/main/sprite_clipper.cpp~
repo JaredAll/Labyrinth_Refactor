@@ -1,0 +1,8 @@
+#include "sprite_clipper.h";
+
+vector< SDL_Rect* > SpriteClipper::clip_sheet(
+  SDL_Texture* texture,
+  uint clips )
+{
+  
+}

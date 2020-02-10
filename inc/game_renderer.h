@@ -16,7 +16,7 @@ public:
   
   GameRenderer( SDL_Window* win );
 
-  void render( std::vector<RenderComponent*> gameComponents );
+  void render( std::vector< GameComponent* > gameComponents );
 
   SDL_Texture* create_texture( std::string image_path );
 
