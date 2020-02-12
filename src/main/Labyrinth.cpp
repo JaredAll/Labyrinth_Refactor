@@ -3,6 +3,7 @@
 #include "doug.h"
 #include "sprite.h"
 #include <unistd.h>
+#include "walking_command.h"
 
 using namespace std;
 
@@ -21,8 +22,8 @@ int main( int argc, char* argv[] )
 
   for( uint i = 0; i < 20; i++ )
   {
-    labyrinth -> render( components );
     labyrinth -> update( components );
+    labyrinth -> render( components );
     usleep( milliseconds * 1000 );
   }
 }

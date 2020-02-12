@@ -12,6 +12,7 @@ Sprite::Sprite( int param_x,
   destination = new SDL_Rect();
   initialize_dimensions();
   initialize_destination();
+  flipped = false;
 }
 
 void Sprite::initialize_destination()
@@ -87,4 +88,14 @@ int Sprite::get_x()
 int Sprite::get_y()
 {
   return y;
+}
+
+bool Sprite::is_flipped()
+{
+  return flipped;
+}
+
+void Sprite::set_flipped( bool param_flipped )
+{
+  flipped = param_flipped;
 }

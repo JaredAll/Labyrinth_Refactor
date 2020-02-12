@@ -9,6 +9,9 @@
 #include "sprite.h"
 #include <unistd.h>
 #include "game_component.h"
+#include "character_state.h"
+#include "walking_state.h"
+#include "standing_state.h"
 
 using namespace std;
 
@@ -33,78 +36,17 @@ public:
 
   void update();
 
-  /**
-   * make the character walk left
-   * @param speed the speed that the character walks
-   * @param count the characters cycle count
-   */
-  void walk_left( uint speed, uint count );
-
-  /**
-   * make the character walk right
-   * @param speed the speed that the character walks
-   * @param count the characters walking cycle count
-   */
-  void walk_right( uint speed, uint count );
-
-  /**
-   * make the character stand
-   */
-  void stand();
-
-  /**
-   * set the characters coordinates
-   */
-  void set_position( int x, int y );
-  
-  /**
-   * set the characters screen coordinates
-   */
-  void set_screen_position( int x, int y );
-
-  /**
-   * get the characters coordinates
-   */
-  vector< int > get_screen_position();
-
-  /**
-   * get the characters coordinates
-   */
-  vector< int > get_position();
-  
-  /**
-   * update characters position
-   */
-  void update_pos( bool left, uint speed );
-
-  /**
-   * reset characters position
-   */
-  void reset();
-
-  /**
-   *reset characters position with offset
-   */
-  void reset( uint offset );
-
-  /**
-   * determine if two characters are equal
-   */
-  bool equals( Character *character );
-
-  /**
-   * gets the name of the character
-   */
-  string get_name();
-
-  /**
-   * set stage position
-   */
-  void set_stage_pos( int screen_pos, int pos );
-
   RenderComponent* get_render_component();
 
   void setRenderComponent( RenderComponent* renderComponent );
+
+  void set_state( CharacterState* state );
+
+  void update_stride();
+
+  void turn_around();
+
+  uint get_x();
 
 private:
 
@@ -122,6 +64,7 @@ private:
   vector< SDL_Rect* > walking_clips;
   SDL_Rect* current_clip;
   uint stride;
+  CharacterState* state;
   
   Sprite *torso;
   vector< SDL_Rect* > talking_clips;

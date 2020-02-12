@@ -21,6 +21,10 @@ public:
 
   virtual int get_y() = 0;
 
+  virtual bool is_flipped() = 0;
+
+  virtual void set_flipped( bool flipped ) = 0;
+
   virtual void calculate_destination()
   {
     if( getDestination() )

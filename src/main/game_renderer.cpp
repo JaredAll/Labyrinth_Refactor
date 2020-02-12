@@ -38,5 +38,12 @@ void GameRenderer::render( RenderComponent* renderComponent )
   SDL_Rect* destination = renderComponent -> getDestination();
   SDL_Rect* source = renderComponent -> getClip();
 
-  renderTexture( texture, renderer, destination, source );
+  if( renderComponent -> is_flipped() )
+  {
+    renderTextureFlip( texture, renderer, destination, source );
+  }
+  else
+  {
+    renderTexture( texture, renderer, destination, source ); 
+  }
 }

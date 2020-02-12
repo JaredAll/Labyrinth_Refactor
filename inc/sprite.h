@@ -81,6 +81,10 @@ public:
 
   SDL_Rect* getClip();
 
+  bool is_flipped();
+
+  void set_flipped( bool flipped );
+
 private:
 
   void initialize_destination();
@@ -95,6 +99,8 @@ private:
   int y;
   int h;
   int w;
+
+  bool flipped;
 };
 
 
