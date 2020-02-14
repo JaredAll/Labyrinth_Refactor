@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <SDL_image.h>
 #include <iostream>
 #include <vector>
@@ -44,7 +45,9 @@ public:
 
   void update_stride();
 
-  void turn_around();
+  void face_right();
+
+  void face_left();
 
   uint get_x();
 

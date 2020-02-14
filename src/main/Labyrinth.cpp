@@ -13,7 +13,8 @@ int main( int argc, char* argv[] )
   Game* labyrinth = new Game();
   labyrinth -> initialize();
 
-  Character* doug = labyrinth -> create_character( doug_config );
+  Character* doug =
+    labyrinth -> create_main_character( doug_config );
 
   vector< GameComponent* > components;
   components.push_back( doug );
@@ -22,6 +23,7 @@ int main( int argc, char* argv[] )
 
   for( uint i = 0; i < 20; i++ )
   {
+    labyrinth -> handle_input();
     labyrinth -> update( components );
     labyrinth -> render( components );
     usleep( milliseconds * 1000 );

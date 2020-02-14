@@ -51,9 +51,12 @@ uint Character::get_x()
   return x_pos;
 }
 
-void Character::turn_around()
+void Character::face_right()
 {
-  renderComponent -> set_flipped(
-    !renderComponent -> is_flipped()
-    );
+  renderComponent -> set_flipped( false );
+}
+
+void Character::face_left()
+{
+  renderComponent -> set_flipped( true );
 }

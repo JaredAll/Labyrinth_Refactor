@@ -12,6 +12,7 @@
 #include "character_struct.h"
 #include "character.h"
 #include "sprite_clipper.h"
+#include "input_handler.h"
 #include <unistd.h>
 
 class Game
@@ -24,7 +25,11 @@ public:
 
   void update( vector< GameComponent* > components );
 
+  void handle_input();
+
   Character* create_character( CharacterConfig configuration );
+
+  Character* create_main_character( CharacterConfig configuration );
 
 private:
 
@@ -33,6 +38,10 @@ private:
   GameRenderer* renderer;
 
   SpriteClipper* clipper;
+
+  Character* main_character;
+
+  InputHandler* input_handler;
 };
 
 #endif

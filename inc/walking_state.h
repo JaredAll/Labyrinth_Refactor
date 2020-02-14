@@ -9,7 +9,17 @@
 class WalkingState : public CharacterState
 {
 public:
+
+  WalkingState();
+
   void update( Character* character );
+
+  void right();
+
+  void left();
+
+private:
+  bool facing_right;
 };
 
 #endif

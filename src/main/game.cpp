@@ -1,8 +1,7 @@
 #include "game.h"
 
 void Game::initialize()
-{
-  
+{  
   if (SDL_Init(SDL_INIT_VIDEO) != 0)
   {
     logSDLError( std::cout, "SDL_Init" );
@@ -22,7 +21,7 @@ void Game::initialize()
   }
 
   renderer = new GameRenderer( win );
-
+  input_handler = new InputHandler();
 }
 
 void Game::render( vector< GameComponent* > components )
@@ -38,6 +37,12 @@ void Game::update( vector< GameComponent* > components )
   }
 }
 
+void Game::handle_input()
+{
+  CharacterState* state = input_handler -> handle_input();
+  main_character -> set_state( state );
+}
+
 Sprite* Game::initialize_sprite(
   uint x,
   uint y,
@@ -51,6 +56,13 @@ Sprite* Game::initialize_sprite(
   sprite -> set_position( x, y - sprite -> get_h() );
   
   return sprite;
+}
+
+Character* Game::create_main_character( CharacterConfig configuration )
+{
+  Character* character = create_character( configuration );
+  main_character = character;
+  return main_character;
 }
 
 Character* Game::create_character( CharacterConfig configuration )
