@@ -19,12 +19,26 @@ void WalkingState::update( Character* character )
   character -> update_stride();
 }
 
-void WalkingState::right()
+CharacterState* WalkingState::right()
 {
-  facing_right = true;
+  WalkingState* walkingState = new WalkingState();
+  walkingState -> set_facing_right( true );
+  return walkingState;
 }
 
-void WalkingState::left()
+CharacterState* WalkingState::left()
 {
-  facing_right = false;
+  WalkingState* walkingState = new WalkingState();
+  walkingState -> set_facing_right( false );
+  return walkingState;
+}
+
+CharacterState* WalkingState::no_input()
+{
+  return new StandingState();
+}
+
+void WalkingState::set_facing_right( bool param_facing_right )
+{
+  facing_right = param_facing_right;
 }

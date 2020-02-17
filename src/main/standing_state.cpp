@@ -2,15 +2,24 @@
 
 void StandingState::update( Character* character )
 {
-  
+  character -> reset_stride();
 }
 
-void StandingState::right()
+CharacterState* StandingState::right()
 {
-  
+  WalkingState* walkingState = new WalkingState();
+  walkingState -> set_facing_right( true );
+  return walkingState;
 }
 
-void StandingState::left()
+CharacterState* StandingState::left()
 {
-  
+  WalkingState* walkingState = new WalkingState();
+  walkingState -> set_facing_right( false );
+  return walkingState;
+}
+
+CharacterState* StandingState::no_input()
+{
+  return new StandingState();
 }

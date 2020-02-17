@@ -5,6 +5,7 @@
 #include <iostream>
 #include "character_state.h"
 #include "character.h"
+#include "standing_state.h"
 
 class WalkingState : public CharacterState
 {
@@ -14,9 +15,13 @@ public:
 
   void update( Character* character );
 
-  void right();
+  CharacterState* right();
 
-  void left();
+  CharacterState* left();
+
+  CharacterState* no_input();
+
+  void set_facing_right( bool facing_right );
 
 private:
   bool facing_right;

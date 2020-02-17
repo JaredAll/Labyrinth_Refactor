@@ -9,9 +9,14 @@
 class StandingState : public CharacterState
 {
 public:
+  
   void update( Character* character );
-  void right();
-  void left();
+  
+  CharacterState* right();
+  
+  CharacterState* left();
+
+  CharacterState* no_input();
 };
 
 #endif

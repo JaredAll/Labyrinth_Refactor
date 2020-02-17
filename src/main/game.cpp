@@ -24,23 +24,27 @@ void Game::initialize()
   input_handler = new InputHandler();
 }
 
-void Game::render( vector< GameComponent* > components )
+void Game::set_components( vector< GameComponent* > param_components )
+{
+  components = param_components;
+}
+
+void Game::render()
 {
   renderer -> render( components );
 }
 
-void Game::update( vector< GameComponent* > components )
+void Game::update( InputEvent* event )
 {
   for( uint i = 0; i < components.size(); i++ )
   {
-    components.at( i ) -> update();
+    components.at( i ) -> update( event );
   }
 }
 
-void Game::handle_input()
+InputEvent* Game::handle_input()
 {
-  CharacterState* state = input_handler -> handle_input();
-  main_character -> set_state( state );
+  return input_handler -> handle_input();
 }
 
 Sprite* Game::initialize_sprite(

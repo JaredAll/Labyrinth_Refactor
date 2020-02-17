@@ -13,6 +13,7 @@
 #include "character.h"
 #include "sprite_clipper.h"
 #include "input_handler.h"
+#include "input_event.h"
 #include <unistd.h>
 
 class Game
@@ -21,15 +22,17 @@ public:
   
   void initialize();
 
-  void render( vector< GameComponent* > components );
+  void render();
 
-  void update( vector< GameComponent* > components );
+  void update( InputEvent* event );
 
-  void handle_input();
+  InputEvent* handle_input();
 
   Character* create_character( CharacterConfig configuration );
 
   Character* create_main_character( CharacterConfig configuration );
+
+  void set_components( vector< GameComponent* > components );
 
 private:
 
@@ -42,6 +45,8 @@ private:
   Character* main_character;
 
   InputHandler* input_handler;
+
+  vector< GameComponent* > components;
 };
 
 #endif

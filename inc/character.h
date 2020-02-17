@@ -13,6 +13,7 @@
 #include "character_state.h"
 #include "walking_state.h"
 #include "standing_state.h"
+#include "input_event.h"
 
 using namespace std;
 
@@ -35,13 +36,15 @@ public:
              Sprite* face,
              vector< SDL_Rect* > talking_clips );
 
-  void update();
+  void update( InputEvent* event );
 
   RenderComponent* get_render_component();
 
   void setRenderComponent( RenderComponent* renderComponent );
 
   void set_state( CharacterState* state );
+
+  void reset_stride();
 
   void update_stride();
 

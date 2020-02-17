@@ -29,8 +29,9 @@ void Character::setRenderComponent( RenderComponent* renderComponent )
   renderComponent -> calculate_destination();
 }
 
-void Character::update()
+void Character::update( InputEvent* event )
 {
+  state = state -> handle_input( event );
   state -> update( this );
 }
 
@@ -44,6 +45,13 @@ void Character::update_stride()
   stride = ( stride + 1 ) % walking_clips.size();
   current_clip = walking_clips.at( stride );
   renderComponent -> set_clip( current_clip );
+}
+
+void Character::reset_stride()
+{
+  stride = 0;
+  current_clip = walking_clips.at( stride );
+  renderComponent -> set_clip( current_clip );  
 }
 
 uint Character::get_x()

@@ -2,14 +2,13 @@
 
 InputHandler::InputHandler()
 {
-  state = new StandingState();
   keyboard_state = SDL_GetKeyboardState( NULL );
 }
 
-CharacterState* InputHandler::handle_input()
+InputEvent* InputHandler::handle_input()
 {
-  CharacterState* previous_state = state;
-  SDL_PumpEvents();
+  int x = 0;
+  int y = 0;
   
   while( SDL_PollEvent( &e ))
   {
@@ -17,30 +16,17 @@ CharacterState* InputHandler::handle_input()
     {
       if( right_arrow( e ) )
       {
-        std::cout << "right" << std::endl;
-        state = new WalkingState();
-        state -> right();
+        x = 1;
       }
       
       if( left_arrow( e ))
       {
-        std::cout << "left" << std::endl;
-        state = new WalkingState();
-        state -> left();
+        x = -1;
       }
-    }
-    else
-    {
-      state = new StandingState();
     }
   }    
 
-  if( state != previous_state )
-  {
-    free( previous_state );
-  }
-
-  return state;
+  return new InputEvent( x, y );
 }
 
 bool InputHandler::right_arrow( SDL_Event e )
