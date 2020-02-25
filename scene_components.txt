@@ -1,0 +1,11 @@
+Adding a scene to the game will load all of the GameComponents that the scene
+contains into the main game component vector.
+
+Switching scenes will remove all of the GameComponents that are associated with
+the current scene and will add all of the components associated with the
+new scene.
+
+Of course there will be additional initialization logic. However, once the
+scenes have been determined, a state machine similar to the character state
+machine can dictate which scene will come next. This will simplify the
+scene class, just as the character class has been simplified. 

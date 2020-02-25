@@ -4,6 +4,8 @@
 #include "render_component.h"
 #include "input_event.h"
 
+class Game;
+
 class GameComponent
 {
 public:

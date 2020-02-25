@@ -7,8 +7,8 @@
 #include "cleanup.h"
 #include <iostream>
 #include <vector>
-#include "game.h"
 #include "game_renderer.h"
+#include "game_component.h"
 #include "character_struct.h"
 #include "character.h"
 #include "sprite_clipper.h"
