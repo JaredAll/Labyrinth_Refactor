@@ -47,14 +47,19 @@ InputEvent* Game::handle_input()
   return input_handler -> handle_input();
 }
 
+void Game::add_component( GameComponent* gameComponent )
+{
+  components.push_back( gameComponent );
+}
+
 void Game::play()
 {
-  uint milliseconds = 16;
+  uint frames_per_second = 60;
+  uint milliseconds = 1000 / frames_per_second;
 
   for( uint i = 0; i < 300; i++ )
   {
     InputEvent* event = handle_input();
-    cout << event -> get_x_input() << endl;
     update( event );
     render();
     free( event );   

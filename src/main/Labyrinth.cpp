@@ -20,15 +20,12 @@ int main( int argc, char* argv[] )
   Character* lunius =
     labyrinth -> create_character( lunius_config );
 
-  vector< GameComponent* > components;
-  components.push_back( doug );
-
   vector< GameComponent* > camera_components;
   camera_components.push_back( lunius );
   Camera* camera = new Camera( camera_components );
 
-  components.push_back( camera );
+  camera -> load_into_game( labyrinth );
+  labyrinth -> add_component( doug );
 
-  labyrinth -> set_components( components );
   labyrinth -> play();
 }

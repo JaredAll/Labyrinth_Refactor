@@ -17,11 +17,6 @@
 
 using namespace std;
 
-/**
- * A character class
- * @author Jared Allen
- * @version 9 February 2019
- */
 class Character : public GameComponent
 {
 public:
@@ -38,9 +33,9 @@ public:
 
   void update( InputEvent* event );
 
-  RenderComponent* get_render_component();
-
   void setRenderComponent( RenderComponent* renderComponent );
+
+  void load_into_game( Game* game );
 
   void set_state( CharacterState* state );
 

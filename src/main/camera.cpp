@@ -1,9 +1,15 @@
 #include "camera.h"
+#include "game.h"
 
 Camera::Camera( std::vector< GameComponent* > param_components )
 {
   components = param_components;
   speed = 2;
+}
+
+void Camera::load_into_game( Game* game )
+{
+  game -> add_component( this );
 }
 
 void Camera::pan_right()
@@ -35,7 +41,20 @@ void Camera::update( InputEvent* event )
   }
 }
 
-RenderComponent* Camera::get_render_component()
+vector< RenderComponent* > Camera::get_render_components()
 {
-  return components.at( 0 ) -> get_render_component();
+  vector< RenderComponent* > renderComponents;
+
+  for( uint i = 0; i < components.size(); i++ )
+  {
+    vector< RenderComponent* > subRenderComponents =
+      components.at( i ) -> get_render_components();
+    
+    for( uint j = 0; j < subRenderComponents.size(); j++ )
+    {
+      renderComponents.push_back( subRenderComponents.at( j ) );
+    }
+  }
+
+  return renderComponents;
 }

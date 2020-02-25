@@ -1,4 +1,5 @@
 #include "character.h"
+#include "game.h"
 
 Character::Character( Sprite* body,
                       vector< SDL_Rect* > walking_clips_param,
@@ -17,9 +18,9 @@ Character::Character( Sprite* body,
   setRenderComponent( body );
 }
 
-RenderComponent* Character::get_render_component()
+void Character::load_into_game( Game* game )
 {
-  return renderComponent;
+  game -> add_component( this );
 }
 
 void Character::setRenderComponent( RenderComponent* renderComponent )

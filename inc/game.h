@@ -30,6 +30,8 @@ public:
 
   void set_components( vector< GameComponent* > components );
 
+  void add_component( GameComponent* gameComponent );
+
 private:
 
   Sprite* initialize_sprite( uint x, uint y, std::string resouce );

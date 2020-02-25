@@ -10,7 +10,9 @@ public:
 
   Camera( std::vector< GameComponent* > components );
 
-  RenderComponent* get_render_component();
+  vector< RenderComponent* > get_render_components();
+
+  void load_into_game( Game* game );
 
   void update( InputEvent* event );
 

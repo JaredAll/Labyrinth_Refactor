@@ -20,8 +20,13 @@ void GameRenderer::render( std::vector< GameComponent* > gameComponents )
   SDL_RenderClear( renderer );
   for( uint i = 0; i < gameComponents.size(); i++ )
   {
-    render( gameComponents.at( i )
-            -> get_render_component() );
+    vector< RenderComponent* > subRenderComponents =
+      gameComponents.at( i ) -> get_render_components();
+
+    for( uint j = 0; j < subRenderComponents.size(); j++ )
+    {
+      render( subRenderComponents.at( j ) );
+    }
   }
 
   SDL_RenderPresent( renderer );

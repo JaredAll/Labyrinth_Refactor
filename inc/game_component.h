@@ -3,6 +3,9 @@
 
 #include "render_component.h"
 #include "input_event.h"
+#include <vector>
+
+using namespace std;
 
 class Game;
 
@@ -23,7 +26,12 @@ public:
     renderComponent -> calculate_destination( distance );
   }
 
-  virtual RenderComponent* get_render_component() = 0;
+  virtual vector< RenderComponent* > get_render_components()
+  {
+    vector< RenderComponent* > renderComponents;
+    renderComponents.push_back( renderComponent );
+    return renderComponents;
+  }
 
   virtual void pan_left( uint speed )
   {
@@ -39,6 +47,7 @@ public:
     renderComponent -> calculate_destination( distance );
   }
 
+  virtual void load_into_game( Game* game ) = 0;
 protected:
   
   RenderComponent* renderComponent;
