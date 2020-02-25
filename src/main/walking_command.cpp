@@ -2,5 +2,6 @@
 
 void WalkCommand::execute( Character* character )
 {
-  character -> set_state( new WalkingState() );
+  uint stride_count = 0;
+  character -> set_state( new WalkingState( stride_count ) );
 }

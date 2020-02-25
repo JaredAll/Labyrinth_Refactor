@@ -71,6 +71,10 @@ public:
    */
   int get_y();
 
+  void set_x( int x );
+
+  void set_y( int y );
+
   int get_h();
 
   int get_w();
@@ -87,7 +91,7 @@ public:
 
 private:
 
-  void initialize_destination();
+  void synchronize_destination();
 
   void initialize_dimensions();
 

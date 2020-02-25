@@ -11,7 +11,7 @@ class WalkingState : public CharacterState
 {
 public:
 
-  WalkingState();
+  WalkingState( uint stride_count );
 
   void update( Character* character );
 
@@ -24,7 +24,11 @@ public:
   void set_facing_right( bool facing_right );
 
 private:
+  
   bool facing_right;
+
+  uint frames_per_stride;
+  uint stride_count;
 };
 
 #endif

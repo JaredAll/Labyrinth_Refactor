@@ -26,17 +26,18 @@ void Character::setRenderComponent( RenderComponent* renderComponent )
 {
   this -> renderComponent = renderComponent;
   renderComponent -> set_clip( current_clip );
-  renderComponent -> calculate_destination();
+  renderComponent -> calculate_destination( distance );
 }
 
 void Character::update( InputEvent* event )
 {
-  state = state -> handle_input( event );
+  set_state( state -> handle_input( event ) );
   state -> update( this );
 }
 
 void Character::set_state( CharacterState* param_state )
 {
+  free( state );
   state = param_state;
 }
 

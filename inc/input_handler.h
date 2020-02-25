@@ -20,6 +20,8 @@ private:
 
   SDL_Event e;
   const Uint8* keyboard_state;
+  int x;
+  int y;
 };
 
 #endif

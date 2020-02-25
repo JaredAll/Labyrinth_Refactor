@@ -11,12 +11,6 @@ class CharacterState
 public:
   virtual void update( Character* character ) = 0;
 
-  virtual CharacterState* left() = 0;
-
-  virtual CharacterState* right() = 0;
-
-  virtual CharacterState* no_input() = 0;
-
   virtual CharacterState* handle_input( InputEvent* event )
   {
     CharacterState* next_state;
@@ -35,6 +29,15 @@ public:
 
     return next_state;
   }
+
+private:
+
+  virtual CharacterState* left() = 0;
+
+  virtual CharacterState* right() = 0;
+
+  virtual CharacterState* no_input() = 0;
+
 };
 
 #endif

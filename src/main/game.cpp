@@ -47,6 +47,21 @@ InputEvent* Game::handle_input()
   return input_handler -> handle_input();
 }
 
+void Game::play()
+{
+  uint milliseconds = 16;
+
+  for( uint i = 0; i < 300; i++ )
+  {
+    InputEvent* event = handle_input();
+    cout << event -> get_x_input() << endl;
+    update( event );
+    render();
+    free( event );   
+    usleep( milliseconds * 1000 );
+  }
+}
+
 Sprite* Game::initialize_sprite(
   uint x,
   uint y,
@@ -89,9 +104,10 @@ Character* Game::create_character( CharacterConfig configuration )
     face,
     configuration.num_talking_sprites );
 
-  return new Character( body,
-                        walking_clips,
-                        face,
-                        talking_clips );
+  Character* character = new Character( body,
+                                        walking_clips,
+                                        face,
+                                        talking_clips );
+  return character;
 }
 

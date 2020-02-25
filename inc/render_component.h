@@ -21,11 +21,15 @@ public:
 
   virtual int get_y() = 0;
 
+  virtual void set_x( int x ) = 0;
+
+  virtual void set_y( int y ) = 0;
+
   virtual bool is_flipped() = 0;
 
   virtual void set_flipped( bool flipped ) = 0;
 
-  virtual void calculate_destination()
+  virtual void calculate_destination( uint distance )
   {
     if( getDestination() )
     {
@@ -35,8 +39,8 @@ public:
     SDL_Rect* new_destination = new SDL_Rect();
     new_destination -> x = get_x();
     new_destination -> y = get_y();
-    new_destination -> h = getClip() -> h;
-    new_destination -> w = getClip() -> w;
+    new_destination -> h = ( getClip() -> h ) / distance;
+    new_destination -> w = ( getClip() -> w ) / distance;
 
     set_destination( new_destination );
   }

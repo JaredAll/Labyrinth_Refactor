@@ -11,11 +11,11 @@ Sprite::Sprite( int param_x,
   clip = NULL;
   destination = new SDL_Rect();
   initialize_dimensions();
-  initialize_destination();
+  synchronize_destination();
   flipped = false;
 }
 
-void Sprite::initialize_destination()
+void Sprite::synchronize_destination()
 {
   destination -> x = x;
   destination -> y = y;
@@ -88,6 +88,16 @@ int Sprite::get_x()
 int Sprite::get_y()
 {
   return y;
+}
+
+void Sprite::set_x( int param_x )
+{
+  x = param_x;
+}
+
+void Sprite::set_y( int param_y )
+{
+  y = param_y;
 }
 
 bool Sprite::is_flipped()

@@ -7,14 +7,16 @@ void StandingState::update( Character* character )
 
 CharacterState* StandingState::right()
 {
-  WalkingState* walkingState = new WalkingState();
+  uint stride_count = 0;
+  WalkingState* walkingState = new WalkingState( stride_count );
   walkingState -> set_facing_right( true );
   return walkingState;
 }
 
 CharacterState* StandingState::left()
 {
-  WalkingState* walkingState = new WalkingState();
+  uint stride_count = 0;
+  WalkingState* walkingState = new WalkingState( stride_count );
   walkingState -> set_facing_right( false );
   return walkingState;
 }

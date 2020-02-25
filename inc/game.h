@@ -22,11 +22,7 @@ public:
   
   void initialize();
 
-  void render();
-
-  void update( InputEvent* event );
-
-  InputEvent* handle_input();
+  void play();
 
   Character* create_character( CharacterConfig configuration );
 
@@ -37,6 +33,12 @@ public:
 private:
 
   Sprite* initialize_sprite( uint x, uint y, std::string resouce );
+
+  void render();
+
+  void update( InputEvent* event );
+
+  InputEvent* handle_input();
 
   GameRenderer* renderer;
 
