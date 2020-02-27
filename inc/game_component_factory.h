@@ -1,7 +1,6 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef GAME_COMPONENT_FACTORY_H
+#define GAME_COMPONENT_FACTORY_H
 
-#include "game_component_factory.h"
 #include <SDL.h>
 #include <stdio.h>
 #include <SDL_image.h>
@@ -21,41 +20,21 @@
 
 class Scenery;
 
-class GameComponentFactory;
-
-class Game
+class GameComponentFactory
 {
 public:
-  
-  void initialize();
-
-  void play();
+  GameComponentFactory( GameRenderer* renderer, SpriteClipper* clipper );
 
   Character* create_character( CharacterConfig configuration );
 
   Scenery* create_scenery( SceneryConfig configuration );
 
-  void set_components( vector< GameComponent* > components );
-
-  void add_component( GameComponent* gameComponent );
-
 private:
+    Sprite* initialize_sprite( uint x, uint y, std::string resouce );
 
-  void render();
+    GameRenderer* renderer;
 
-  void update( InputEvent* event );
-
-  InputEvent* handle_input();
-
-  GameRenderer* renderer;
-
-  SpriteClipper* clipper;
-
-  InputHandler* input_handler;
-
-  GameComponentFactory* gameComponentFactory;
-
-  vector< GameComponent* > components;
+    SpriteClipper* clipper;
 };
 
 #endif

@@ -2,6 +2,9 @@
 #define RENDER_COMPONENT_H
 
 #include <SDL.h>
+#include <iostream>
+
+using namespace std;
 
 class RenderComponent
 {

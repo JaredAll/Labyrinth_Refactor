@@ -1,4 +1,4 @@
-#include "character_struct.h"
+#include "character_config.h"
 
 uint doug_image_x = 400;
 uint doug_image_y = 300;

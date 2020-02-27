@@ -4,6 +4,7 @@
 #include "render_component.h"
 #include "input_event.h"
 #include <vector>
+#include <iostream>
 
 using namespace std;
 

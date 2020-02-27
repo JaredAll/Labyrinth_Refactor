@@ -1,4 +1,4 @@
-#include "character_struct.h"
+#include "character_config.h"
 
 uint lunius_image_x = 500;
 uint lunius_image_y = 200;

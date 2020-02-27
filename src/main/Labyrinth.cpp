@@ -2,6 +2,7 @@
 #include "game_renderer.h"
 #include "doug.h"
 #include "lunius.h"
+#include "grass.h"
 #include "sprite.h"
 #include "input_event.h"
 #include "camera.h"
@@ -15,12 +16,16 @@ int main( int argc, char* argv[] )
   labyrinth -> initialize();
 
   Character* doug =
-    labyrinth -> create_main_character( doug_config );
+    labyrinth -> create_character( doug_config );
 
   Character* lunius =
     labyrinth -> create_character( lunius_config );
 
+  Scenery* grass =
+    labyrinth -> create_scenery( grass_config );
+
   vector< GameComponent* > camera_components;
+  camera_components.push_back( grass );
   camera_components.push_back( lunius );
   Camera* camera = new Camera( camera_components );
 

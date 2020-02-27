@@ -8,8 +8,8 @@ Sprite::Sprite( int param_x,
     y( param_y ),
     sprite_texture( param_sprite_texture )
 {
-  clip = NULL;
   destination = new SDL_Rect();
+  clip = new SDL_Rect();
   initialize_dimensions();
   synchronize_destination();
   flipped = false;
@@ -27,6 +27,11 @@ void Sprite::initialize_dimensions()
 {
   SDL_QueryTexture( sprite_texture, NULL, NULL, &w,
                     &h );
+
+  clip -> x = x;
+  clip -> y = y;
+  clip -> h = h;
+  clip -> w = w;
 }
 
 void Sprite::set_clip( SDL_Rect *param_clip )
