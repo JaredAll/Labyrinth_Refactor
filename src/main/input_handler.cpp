@@ -28,8 +28,13 @@ InputEvent* InputHandler::handle_input()
     {
       x = 0;
     }
-  }    
 
+    if( e.type == SDL_QUIT )
+    {
+      exit( 0 );
+    }
+  }
+  
   return new InputEvent( x, y );
 }
 

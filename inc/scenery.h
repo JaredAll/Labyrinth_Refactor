@@ -10,14 +10,16 @@
 class Scenery : public GameComponent
 {
 public:
-  Scenery( Sprite* sprite );
+  Scenery( vector< Sprite* > sprites );
 
   void load_into_game( Game* game );
 
   void update( InputEvent* event );
 
+  vector< RenderComponent* > get_render_components();
+
 private:
-  Sprite* sprite;
+  vector< Sprite* > sprites;
 };
 
 #endif

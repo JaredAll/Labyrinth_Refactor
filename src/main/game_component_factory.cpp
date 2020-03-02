@@ -50,8 +50,17 @@ Character* GameComponentFactory::create_character( CharacterConfig configuration
 
 Scenery* GameComponentFactory::create_scenery( SceneryConfig configuration )
 {
-  Sprite* sprite = initialize_sprite( configuration.image_x,
-                                      configuration.image_y,
-                                      configuration.scenery_resource );
-  return new Scenery( sprite );
+  vector< Sprite* > sprites;
+  for( uint i = 0; i < configuration.horizontal_repititions; i++ )
+  {
+    Sprite* sprite = initialize_sprite( configuration.image_x,
+                                        configuration.image_y,
+                                        configuration.scenery_resource );
+
+    sprite -> set_x( sprite -> get_x() + i * sprite -> get_w() );
+
+    sprites.push_back( sprite );
+  }
+
+  return new Scenery( sprites );
 }

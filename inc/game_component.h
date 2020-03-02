@@ -36,24 +36,33 @@ public:
 
   virtual void pan_left( uint speed )
   {
-    int x = renderComponent -> get_x();
-    renderComponent -> set_x( x - speed / distance );
-    renderComponent -> calculate_destination( distance );
+    update_render_components( -1 * speed );
   }
 
   virtual void pan_right( uint speed )
   {
-    int x = renderComponent -> get_x();
-    renderComponent -> set_x( x + speed / distance );
-    renderComponent -> calculate_destination( distance );
+    update_render_components( speed );
   }
 
   virtual void load_into_game( Game* game ) = 0;
+  
 protected:
   
   RenderComponent* renderComponent;
 
   uint distance = 1;
+
+private:
+  
+  void update_render_components( int speed )
+  {
+    for( RenderComponent* component : get_render_components() )
+    {
+      int x = component -> get_x();
+      component -> set_x( x + speed / distance );
+      component -> calculate_destination( distance );     
+    }
+  }
 };
 
 #endif

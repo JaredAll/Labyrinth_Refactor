@@ -3,7 +3,7 @@
 int grass_x = 0;
 int grass_y = 0;
 
-std::string grass_resource = "/home/jared/Games/Labyrinth/resources/sprites/background1.png";
+std::string grass_resource = "/home/jared/Games/Labyrinth/resources/sprites/grass1.png";
 
 uint repititions = 5;
 
