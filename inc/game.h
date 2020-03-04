@@ -39,6 +39,8 @@ public:
 
   void add_component( GameComponent* gameComponent );
 
+  uint get_speed();
+
 private:
 
   void render();
@@ -56,6 +58,8 @@ private:
   GameComponentFactory* gameComponentFactory;
 
   vector< GameComponent* > components;
+
+  uint speed;
 };
 
 #endif

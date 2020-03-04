@@ -4,11 +4,11 @@
 Camera::Camera( std::vector< GameComponent* > param_components )
 {
   components = param_components;
-  speed = 2;
 }
 
 void Camera::load_into_game( Game* game )
 {
+  speed = game -> get_speed();
   game -> add_component( this );
 }
 

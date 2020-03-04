@@ -24,6 +24,8 @@ void Game::initialize()
   renderer = new GameRenderer( win );
   input_handler = new InputHandler();
   gameComponentFactory = new GameComponentFactory( renderer, clipper );
+
+  speed = 2;
 }
 
 void Game::set_components( vector< GameComponent* > param_components )
@@ -67,6 +69,11 @@ void Game::play()
     free( event );   
     usleep( milliseconds * 1000 );
   }
+}
+
+uint Game::get_speed()
+{
+  return speed;
 }
 
 Character* Game::create_character( CharacterConfig configuration )

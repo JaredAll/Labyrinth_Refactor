@@ -10,16 +10,32 @@ Character::Character( Sprite* body,
   x_pos = 0;
   y_pos = 0;
   stride = 1;
-  facing_left = false;
   recruited = false;
+  main_character = false;
   current_clip = walking_clips.at( 0 );
   state = new StandingState();
 
   setRenderComponent( body );
 }
 
+Character* Character::get_leader()
+{
+  return leader;
+}
+
+void Character::set_leader( Character* param_leader )
+{
+  leader = param_leader;
+}
+
+void Character::set_main_character( bool is_main_character )
+{
+  main_character = is_main_character;
+}
+
 void Character::load_into_game( Game* game )
 {
+  speed = game -> get_speed();
   game -> add_component( this );
 }
 
@@ -32,7 +48,11 @@ void Character::setRenderComponent( RenderComponent* renderComponent )
 
 void Character::update( InputEvent* event )
 {
-  set_state( state -> handle_input( event ) );
+  if( main_character )
+  {
+    set_state( state -> handle_input( event ) );    
+  }
+
   state -> update( this );
 }
 
@@ -56,7 +76,17 @@ void Character::reset_stride()
   renderComponent -> set_clip( current_clip );  
 }
 
-uint Character::get_x()
+uint Character::get_speed()
+{
+  return speed;
+}
+
+void Character::set_x( int x_param )
+{
+  x_pos = x_param;
+}
+
+int Character::get_x()
 {
   return x_pos;
 }

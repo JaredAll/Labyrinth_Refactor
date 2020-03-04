@@ -9,6 +9,7 @@ WalkingState::WalkingState( uint stride_count_param )
 
 void WalkingState::update( Character* character )
 {
+  int displacement = character -> get_speed();
   if( facing_right )
   {
     character -> face_right();
@@ -16,14 +17,16 @@ void WalkingState::update( Character* character )
   else
   {
     character -> face_left();
+    displacement *= -1;
   }
 
   stride_count++;
 
   if( stride_count % frames_per_stride == 0 )
   {
-    character -> update_stride(); 
+    character -> update_stride();
   }
+  character -> set_x( character -> get_x() + displacement );
 }
 
 CharacterState* WalkingState::right()
@@ -35,7 +38,7 @@ CharacterState* WalkingState::right()
 
 CharacterState* WalkingState::left()
 {
-  WalkingState* walkingState = new WalkingState( stride_count );
+  WalkingState* walkingState = new WalkingState( stride_count ); 
   walkingState -> set_facing_right( false );
   return walkingState;
 }

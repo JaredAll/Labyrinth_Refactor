@@ -1,3 +1,4 @@
+#include "following_state.h"
 #include "game.h"
 #include "game_renderer.h"
 #include "doug.h"
@@ -18,9 +19,13 @@ int main( int argc, char* argv[] )
 
   Character* doug =
     labyrinth -> create_character( doug_config );
+  doug -> set_main_character( true );
 
   Character* lunius =
     labyrinth -> create_character( lunius_config );
+
+  lunius -> set_leader( doug );
+  lunius -> set_state( new FollowingState( lunius_config.num_walking_sprites ) );
 
   Scenery* sky =
     labyrinth -> create_scenery( sky_config );
@@ -35,7 +40,8 @@ int main( int argc, char* argv[] )
   Camera* camera = new Camera( camera_components );
 
   camera -> load_into_game( labyrinth );
-  labyrinth -> add_component( doug );
+  doug -> load_into_game( labyrinth );
+  lunius -> load_into_game( labyrinth );
 
   labyrinth -> play();
 }
