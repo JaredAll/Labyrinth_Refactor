@@ -35,6 +35,8 @@ public:
 
   Scenery* create_scenery( SceneryConfig configuration );
 
+  void load_scene( SceneConfig configuration );
+
   void set_components( vector< GameComponent* > components );
 
   void add_component( GameComponent* gameComponent );

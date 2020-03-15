@@ -21,6 +21,30 @@ Sprite* GameComponentFactory::initialize_sprite(
   return sprite;
 }
 
+Scene* GameComponentFactory::create_scene( SceneConfig configuration )
+{
+  Character* main_character = create_character( *configuration.main_character_config );
+  main_character -> set_main_character( true );
+
+  vector< GameComponent* > camera_components;
+  vector< Character* > characters;
+  for( CharacterConfig* characterConfig : configuration.characterConfigurations )
+  {
+    Character* character = create_character( *characterConfig );
+    camera_components.push_back( character );
+    characters.push_back( character );
+  }
+
+  for( SceneryConfig* sceneryConfig : configuration.sceneryConfigurations )
+  {
+    camera_components.push_back( create_scenery( *sceneryConfig ) );
+  }
+
+  Camera* camera = new Camera( camera_components );
+
+  return new Scene( camera, main_character, characters );
+}
+
 Character* GameComponentFactory::create_character( CharacterConfig configuration )
 {
   Sprite* body = initialize_sprite(

@@ -11,7 +11,9 @@
 #include "game_component.h"
 #include "character_config.h"
 #include "scenery_config.h"
+#include "scene_config.h"
 #include "scenery.h"
+#include "scene.h"
 #include "character.h"
 #include "sprite_clipper.h"
 #include "input_handler.h"
@@ -23,11 +25,14 @@ class Scenery;
 class GameComponentFactory
 {
 public:
+  
   GameComponentFactory( GameRenderer* renderer, SpriteClipper* clipper );
 
   Character* create_character( CharacterConfig configuration );
 
   Scenery* create_scenery( SceneryConfig configuration );
+
+  Scene* create_scene( SceneConfig configuration );
 
 private:
     Sprite* initialize_sprite( uint x, uint y, std::string resouce );
