@@ -25,10 +25,14 @@ public:
 
 private:
 
-  bool facing_right;
+  void follow( int current_distance, Character* character, Character* leader );
 
+  void wait( Character* character );
+
+  bool facing_right;
   uint frames_per_stride;
   uint stride_count;
+  uint follow_distance;
 };
 
 #endif

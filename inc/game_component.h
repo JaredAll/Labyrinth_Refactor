@@ -45,12 +45,22 @@ public:
   }
 
   virtual void load_into_game( Game* game ) = 0;
-  
+
+  virtual void set_panning( bool is_panning )
+  {
+    panning = is_panning;
+  }
+
+  virtual bool is_panning()
+  {
+    return panning;
+  }
+
 protected:
   
   RenderComponent* renderComponent;
-
   uint distance = 1;
+  bool panning = true;
 
 private:
   

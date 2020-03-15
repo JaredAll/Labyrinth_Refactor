@@ -22,6 +22,11 @@ InputEvent* InputHandler::handle_input()
       {
         x = -1;
       }
+
+      if( escape( e ))
+      {
+        exit( 0 );
+      }
     }
 
     if( e.type == SDL_KEYUP )
@@ -36,6 +41,12 @@ InputEvent* InputHandler::handle_input()
   }
   
   return new InputEvent( x, y );
+}
+
+bool InputHandler::escape( SDL_Event e )
+{
+  return e.key.keysym.sym ==
+    SDLK_ESCAPE;
 }
 
 bool InputHandler::right_arrow( SDL_Event e )

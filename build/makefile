@@ -10,7 +10,7 @@ OBJ_FILES = sprite.o easy_sdl.o game_renderer.o game.o character.o sprite_clippe
 TEST_OBJ_FILES = test_background.o
 VPATH = ../src/test:../src/main
 
-all: Labyrinth tests
+all: Labyrinth tests cscope
 
 %.o: %.cpp
 	$(CXX) $(CXX_FLAGS) -c $<
@@ -26,6 +26,9 @@ clean:
 
 test:
 	./tests
+
+cscope:
+	cd ~/Games/Labyrinth && cscope -b -q -k -R
 
 build_linux:
 	cp *.o builds/linux/ && cp sketch_1 builds/linux/

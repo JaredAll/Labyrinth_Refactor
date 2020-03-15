@@ -16,7 +16,10 @@ void Camera::pan_right()
 {
   for( uint i = 0; i < components.size(); i++ )
   {
-    components.at( i ) -> pan_right( speed );
+    if( components.at( i ) -> is_panning() )
+    {
+      components.at( i ) -> pan_right( speed ); 
+    }
   }
 }
 
@@ -24,7 +27,10 @@ void Camera::pan_left()
 {
   for( uint i = 0; i < components.size(); i++ )
   {
-    components.at( i ) -> pan_left( speed );
+    if( components.at( i ) -> is_panning() )
+    {
+      components.at( i ) -> pan_left( speed );
+    }
   }
 }
 

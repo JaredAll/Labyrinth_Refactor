@@ -13,7 +13,6 @@ using namespace std;
 
 int main( int argc, char* argv[] )
 {
-
   Game* labyrinth = new Game();
   labyrinth -> initialize();
 
