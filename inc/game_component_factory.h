@@ -19,6 +19,9 @@
 #include "input_handler.h"
 #include "input_event.h"
 #include <unistd.h>
+#include "text_box.h"
+
+class TextBox;
 
 class Scenery;
 
@@ -33,6 +36,8 @@ public:
   Scenery* create_scenery( SceneryConfig configuration );
 
   Scene* create_scene( SceneConfig configuration );
+
+  TextBox* create_text_box();
 
 private:
     Sprite* initialize_sprite( uint x, uint y, std::string resouce );

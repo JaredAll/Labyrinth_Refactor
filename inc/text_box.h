@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <iostream>
 #include "cleanup.h"
+#include "game_component.h"
+#include "game.h"
 
 using namespace std;
 
@@ -16,27 +18,24 @@ using namespace std;
  * @author Jared Allen
  * @version 1 June 2019
  */
-class Text_box
+class TextBox : GameComponent
 {
 public:
 
-  /**
-   * constructor
-   * @param param_x the x pos
-   * @param param_y the y pos
-   * @param param_h the height
-   * @param param_w the width 
-   */
-  Text_box( uint param_x, uint param_y, uint param_h,
-    uint param_w );
+  TextBox( uint param_x,
+           uint param_y,
+           uint param_h,
+           uint param_w );
 
-  /**
-   * display message on text box
-   * @param message the message to be displayed 
-   */
-  void display( string message, SDL_Renderer *renderer,
-                TTF_Font *font, uint letters );
-  
+  void display( string message,
+                SDL_Renderer *renderer,
+                TTF_Font *font,
+                uint letters );
+
+  void update( InputEvent* e );
+
+  void load_into_game( Game* game );
+
 private:
 
   uint x_pos;

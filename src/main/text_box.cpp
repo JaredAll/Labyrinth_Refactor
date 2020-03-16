@@ -97,7 +97,7 @@ void TextBox::display( string message, SDL_Renderer *renderer,
   previous_message = message;
 }
 
-void TextBox::update( InputEvent e )
+void TextBox::update( InputEvent* e )
 {  
 }
 

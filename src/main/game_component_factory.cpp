@@ -88,3 +88,8 @@ Scenery* GameComponentFactory::create_scenery( SceneryConfig configuration )
 
   return new Scenery( sprites );
 }
+
+TextBox* GameComponentFactory::create_text_box()
+{
+  return new TextBox( 0, 0, 0, 0 );
+}
