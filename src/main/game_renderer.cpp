@@ -37,6 +37,16 @@ SDL_Texture* GameRenderer::create_texture( std::string image_path )
   return loadTexture( image_path, renderer );
 }
 
+SDL_Texture* GameRenderer::render_letter_texture( TTF_Font* font,
+                                                  char letter_singleton[],
+                                                  SDL_Color color )
+{
+  SDL_Surface *letter_surface = TTF_RenderText_Solid( font, letter_singleton, color );
+  SDL_Texture *letter_texture = SDL_CreateTextureFromSurface( renderer, letter_surface );
+  cleanup( letter_surface );
+  return letter_texture;
+}
+
 void GameRenderer::render( RenderComponent* renderComponent )
 {
   SDL_Texture* texture = renderComponent -> getTexture();

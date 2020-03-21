@@ -22,15 +22,9 @@ class TextBox : GameComponent
 {
 public:
 
-  TextBox( uint param_x,
-           uint param_y,
-           uint param_h,
-           uint param_w );
-
-  void display( string message,
-                SDL_Renderer *renderer,
-                TTF_Font *font,
-                uint letters );
+  TextBox( SDL_Rect* displayBox,
+           vector< SDL_Rect* > letter_slots,
+           vector< SDL_Texture* > letter_textures );
 
   void update( InputEvent* e );
 
@@ -38,15 +32,10 @@ public:
 
 private:
 
-  uint x_pos;
-  uint y_pos;
-  uint height;
-  uint width;
   vector< SDL_Rect* > letter_slots;
   SDL_Rect *display_box;
   vector< SDL_Texture *> letter_textures;
-  string previous_message;
-
+  
 };
 
 #endif

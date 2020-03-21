@@ -12,6 +12,7 @@
 #include "character_config.h"
 #include "scenery_config.h"
 #include "scene_config.h"
+#include "text_box_config.h"
 #include "scenery.h"
 #include "scene.h"
 #include "character.h"
@@ -37,10 +38,14 @@ public:
 
   Scene* create_scene( SceneConfig configuration );
 
-  TextBox* create_text_box();
+  TextBox* create_text_box( TextBoxConfig configuration );
 
 private:
     Sprite* initialize_sprite( uint x, uint y, std::string resouce );
+
+    vector< SDL_Rect* > create_letter_slots( string message, SDL_Rect* displayBox );
+
+    vector< SDL_Texture* > create_letter_textures( string message, TTF_Font* font );
 
     GameRenderer* renderer;
 

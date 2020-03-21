@@ -11,8 +11,6 @@ using namespace std;
 
 int main( int argc, char* argv[] )
 {
-  TextBox* box = new TextBox( 0, 0, 0, 0 );
-
   Game* labyrinth = new Game();
   
   labyrinth -> initialize();

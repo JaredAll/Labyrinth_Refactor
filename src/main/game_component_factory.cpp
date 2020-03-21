@@ -89,7 +89,91 @@ Scenery* GameComponentFactory::create_scenery( SceneryConfig configuration )
   return new Scenery( sprites );
 }
 
-TextBox* GameComponentFactory::create_text_box()
+TextBox* GameComponentFactory::create_text_box( TextBoxConfig configuration )
 {
-  return new TextBox( 0, 0, 0, 0 );
+  SDL_Rect* displayBox = new SDL_Rect();
+  displayBox -> x = configuration.x_pos;
+  displayBox -> y = configuration.y_pos;
+  displayBox -> h = configuration.height;
+  displayBox -> w = configuration.width;
+
+  vector< SDL_Rect* > letter_slots = create_letter_slots( configuration.message,
+                                                          displayBox );
+
+  vector< SDL_Texture* > letter_textures = create_letter_textures( configuration.message,
+                                                                   configuration.font );
+
+  return new TextBox( displayBox, letter_slots, letter_textures );
 }
+
+vector< SDL_Rect* > GameComponentFactory::create_letter_slots( string message,
+                                                               SDL_Rect* displayBox )
+{
+  uint height = displayBox -> h;
+  uint width = displayBox -> w;
+  uint x_pos = displayBox -> x;
+  uint y_pos = displayBox -> y;
+  
+  uint thin_letter_divisor = 10;
+  uint letter_divisor = 6;
+  uint next_x = 0;
+  uint next_y = y_pos;
+  uint lines_per_box = 3;
+  uint line_padding = 5;
+
+  vector< SDL_Rect* > letter_slots;
+  for( uint letter = 0; letter < message.length(); letter++ )
+  {
+    SDL_Rect *letter_slot = new SDL_Rect();
+    uint letter_width;
+    if( message.at( letter ) == 'i' ||
+        message.at( letter ) == 'l' ||
+        message.at( letter ) == 'I' ||
+        message.at( letter ) == ' ' )
+    {
+      letter_width = height / thin_letter_divisor;
+    }
+    else
+    {
+      letter_width = height / letter_divisor;
+    }
+
+    if( x_pos + next_x > width && message.at( letter - 1 ) == ' ' )
+    {
+      next_y = next_y + (height / lines_per_box ) + line_padding;
+      next_x = 0; 
+    }
+
+    letter_slot -> x = x_pos + next_x;
+    letter_slot -> y = next_y;
+    letter_slot -> h = height / lines_per_box;
+    letter_slot -> w = letter_width;
+    
+    letter_slots.push_back( letter_slot );
+
+    next_x += letter_width;
+  }
+
+  return letter_slots;
+}
+
+vector< SDL_Texture* > GameComponentFactory::create_letter_textures( string message,
+                                                                     TTF_Font* font )
+{
+  vector< SDL_Texture* > letter_textures;
+  
+  char message_array[ 100 ];
+  strcpy( message_array, message.c_str() );
+  SDL_Color color = {0, 0, 0};
+  
+  for( uint i = 0; i < message.length(); i++ )
+  {
+    char letter_singleton[ 2 ] = { message_array[ i ], '\0' };
+    
+    letter_textures.push_back(
+      renderer -> render_letter_texture( font, letter_singleton, color )
+      );
+  }
+  return letter_textures;
+}
+  

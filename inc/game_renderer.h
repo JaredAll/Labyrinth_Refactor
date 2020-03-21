@@ -4,6 +4,7 @@
 #include "game_component.h"
 #include <vector>
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <stdio.h>
 #include <iostream>
 #include "easy_sdl.h"
@@ -19,6 +20,10 @@ public:
   void render( std::vector< GameComponent* > gameComponents );
 
   SDL_Texture* create_texture( std::string image_path );
+
+  SDL_Texture* render_letter_texture( TTF_Font* font,
+                                      char letter_singleton[],
+                                      SDL_Color color);
 
 private:
 
