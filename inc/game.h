@@ -14,6 +14,8 @@
 #include "scenery_config.h"
 #include "scenery.h"
 #include "character.h"
+#include "text_box.h"
+#include "text_box_config.h"
 #include "sprite_clipper.h"
 #include "input_handler.h"
 #include "input_event.h"
@@ -34,6 +36,8 @@ public:
   Character* create_character( CharacterConfig configuration );
 
   Scenery* create_scenery( SceneryConfig configuration );
+
+  TextBox* create_text_box( TextBoxConfig configuration );
 
   void load_scene( SceneConfig configuration );
 

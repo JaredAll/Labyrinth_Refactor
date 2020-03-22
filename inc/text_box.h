@@ -10,6 +10,7 @@
 #include "cleanup.h"
 #include "game_component.h"
 #include "game.h"
+#include "glyph.h"
 
 using namespace std;
 
@@ -22,19 +23,17 @@ class TextBox : GameComponent
 {
 public:
 
-  TextBox( SDL_Rect* displayBox,
-           vector< SDL_Rect* > letter_slots,
-           vector< SDL_Texture* > letter_textures );
+  TextBox( vector< Glyph* > letters );
 
   void update( InputEvent* e );
 
   void load_into_game( Game* game );
 
+  vector< RenderComponent* > get_render_components();
+
 private:
 
-  vector< SDL_Rect* > letter_slots;
-  SDL_Rect *display_box;
-  vector< SDL_Texture *> letter_textures;
+  vector< Glyph* > letters;
   
 };
 

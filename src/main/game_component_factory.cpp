@@ -100,10 +100,31 @@ TextBox* GameComponentFactory::create_text_box( TextBoxConfig configuration )
   vector< SDL_Rect* > letter_slots = create_letter_slots( configuration.message,
                                                           displayBox );
 
-  vector< SDL_Texture* > letter_textures = create_letter_textures( configuration.message,
-                                                                   configuration.font );
 
-  return new TextBox( displayBox, letter_slots, letter_textures );
+  TTF_Font* font = initialize_font( configuration.font_resource, configuration.font_size );
+
+  vector< SDL_Texture* > letter_textures = create_letter_textures( configuration.message,
+                                                                   font );
+
+  vector< Glyph* > letters;
+  for( uint letter = 0; letter < letter_slots.size(); letter++ )
+  {
+    letters.push_back( new Glyph( letter_slots.at( letter ), letter_textures.at( letter ) ) );
+  }
+
+  return new TextBox( letters );
+}
+
+TTF_Font* GameComponentFactory::initialize_font( const char* resource, uint size )
+{
+  TTF_Font* font = TTF_OpenFont( resource, size );
+
+  if( font == NULL )
+  {
+    printf( "Unable to render text surface! SDL_ttf Error: %s\n",
+            TTF_GetError() );
+  }
+  return font;
 }
 
 vector< SDL_Rect* > GameComponentFactory::create_letter_slots( string message,
@@ -138,7 +159,7 @@ vector< SDL_Rect* > GameComponentFactory::create_letter_slots( string message,
       letter_width = height / letter_divisor;
     }
 
-    if( x_pos + next_x > width && message.at( letter - 1 ) == ' ' )
+    if( next_x > width && message.at( letter - 1 ) == ' ' )
     {
       next_y = next_y + (height / lines_per_box ) + line_padding;
       next_x = 0; 
@@ -165,14 +186,15 @@ vector< SDL_Texture* > GameComponentFactory::create_letter_textures( string mess
   char message_array[ 100 ];
   strcpy( message_array, message.c_str() );
   SDL_Color color = {0, 0, 0};
-  
+
   for( uint i = 0; i < message.length(); i++ )
   {
     char letter_singleton[ 2 ] = { message_array[ i ], '\0' };
-    
-    letter_textures.push_back(
-      renderer -> render_letter_texture( font, letter_singleton, color )
-      );
+
+    SDL_Texture* letter_texture =
+      renderer -> render_letter_texture( font, letter_singleton, color );
+
+    letter_textures.push_back( letter_texture );
   }
   return letter_textures;
 }

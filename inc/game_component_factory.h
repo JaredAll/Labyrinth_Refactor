@@ -47,6 +47,8 @@ private:
 
     vector< SDL_Texture* > create_letter_textures( string message, TTF_Font* font );
 
+    TTF_Font* initialize_font( const char* resource, uint size );
+
     GameRenderer* renderer;
 
     SpriteClipper* clipper;

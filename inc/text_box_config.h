@@ -1,8 +1,6 @@
 #ifndef TEXT_BOX_CONFIG
 #define TEXT_BOX_CONFIG
 
-#include <SDL_ttf.h>
-
 struct TextBoxConfig
 {
   uint x_pos;
@@ -10,7 +8,8 @@ struct TextBoxConfig
   uint width;
   uint height;
   std::string message;
-  TTF_Font* font;
+  const char * font_resource;
+  uint font_size;
 };
 
 #endif

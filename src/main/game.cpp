@@ -20,6 +20,8 @@ void Game::initialize()
     SDL_Quit();
   }
 
+  TTF_Init();
+
   clipper = new SpriteClipper();
   renderer = new GameRenderer( win );
   input_handler = new InputHandler();
@@ -90,4 +92,9 @@ Character* Game::create_character( CharacterConfig configuration )
 Scenery* Game::create_scenery( SceneryConfig configuration )
 {
   return gameComponentFactory -> create_scenery( configuration );
+}
+
+TextBox* Game::create_text_box( TextBoxConfig configuration )
+{
+  return gameComponentFactory -> create_text_box( configuration );
 }
