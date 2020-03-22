@@ -62,7 +62,7 @@ void Game::play()
 {
   uint frames_per_second = 60;
   uint milliseconds = 1000 / frames_per_second;
-
+        
   while( true )
   {
     InputEvent* event = handle_input();

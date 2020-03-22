@@ -41,9 +41,18 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
     camera_components.push_back( create_scenery( *sceneryConfig ) );
   }
 
+  TextBox* recruit_text_box;
   for( TextBoxConfig* textBoxConfig : configuration.textBoxConfigurations )
   {
-    camera_components.push_back( create_text_box( *textBoxConfig ) );
+    recruit_text_box = create_text_box( *textBoxConfig );
+    camera_components.push_back( recruit_text_box );
+  }
+
+  for( Character* character : characters )
+  {
+    character -> switch_state( new RecruitableStateDecorator( main_character,
+                                                           recruit_text_box,
+                                                           character -> get_state() ) );
   }
 
   Camera* camera = new Camera( camera_components );

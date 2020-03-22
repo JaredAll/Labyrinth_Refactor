@@ -29,12 +29,18 @@ public:
 
   void load_into_game( Game* game );
 
+  void set_display( bool display );
+
+  bool will_display();
+
   vector< RenderComponent* > get_render_components();
 
 private:
 
   vector< Glyph* > letters;
-  
+
+  bool display;
+
 };
 
 #endif

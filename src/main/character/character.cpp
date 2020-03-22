@@ -62,6 +62,16 @@ void Character::set_state( CharacterState* param_state )
   state = param_state;
 }
 
+void Character::switch_state( CharacterState* param_state )
+{
+  state = param_state;
+}
+
+CharacterState* Character::get_state()
+{
+  return state;
+}
+
 void Character::update_stride()
 {
   stride = ( stride + 1 ) % walking_clips.size();

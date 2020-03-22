@@ -30,8 +30,6 @@ public:
     return next_state;
   }
 
-private:
-
   virtual CharacterState* left() = 0;
 
   virtual CharacterState* right() = 0;

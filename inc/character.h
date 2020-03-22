@@ -39,6 +39,10 @@ public:
 
   void set_state( CharacterState* state );
 
+  void switch_state( CharacterState* state );
+
+  CharacterState* get_state();
+
   void set_main_character( bool is_main_character );
 
   void set_leader( Character* leader );
