@@ -23,7 +23,9 @@ public:
   void set_clip( SDL_Rect *clip );
   
   void set_destination( SDL_Rect* destination );
-  
+
+  void calculate_destination( uint distance );
+
   int get_x();
   
   int get_y();

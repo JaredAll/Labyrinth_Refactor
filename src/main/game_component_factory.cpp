@@ -27,6 +27,7 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
   main_character -> set_main_character( true );
 
   vector< GameComponent* > camera_components;
+  
   vector< Character* > characters;
   for( CharacterConfig* characterConfig : configuration.characterConfigurations )
   {
@@ -38,6 +39,11 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
   for( SceneryConfig* sceneryConfig : configuration.sceneryConfigurations )
   {
     camera_components.push_back( create_scenery( *sceneryConfig ) );
+  }
+
+  for( TextBoxConfig* textBoxConfig : configuration.textBoxConfigurations )
+  {
+    camera_components.push_back( create_text_box( *textBoxConfig ) );
   }
 
   Camera* camera = new Camera( camera_components );

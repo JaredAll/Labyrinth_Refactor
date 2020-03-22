@@ -31,6 +31,12 @@ void Glyph::set_destination( SDL_Rect* param_destination )
   destination = param_destination;
 }
 
+void Glyph::calculate_destination( uint distance )
+{
+  destination -> h = destination -> h / distance;
+  destination -> w = destination -> w / distance;
+}
+
 int Glyph::get_x()
 {
   return destination -> x;

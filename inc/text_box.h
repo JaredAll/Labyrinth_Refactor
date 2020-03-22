@@ -19,7 +19,7 @@ using namespace std;
  * @author Jared Allen
  * @version 1 June 2019
  */
-class TextBox : GameComponent
+class TextBox : public GameComponent
 {
 public:
 

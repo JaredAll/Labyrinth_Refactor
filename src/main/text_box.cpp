@@ -3,7 +3,6 @@
 TextBox::TextBox( vector< Glyph* > param_letters )
   : letters( param_letters )
 {
-  panning = false;
 }
 
 void TextBox::update( InputEvent* e )
