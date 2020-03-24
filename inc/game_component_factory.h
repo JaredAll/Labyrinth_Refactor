@@ -27,6 +27,8 @@ class TextBox;
 
 class Scenery;
 
+class Scene;
+
 class GameComponentFactory
 {
 public:

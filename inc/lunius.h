@@ -1,7 +1,7 @@
 #include "character_config.h"
 
-uint lunius_image_x = 500;
-uint lunius_image_y = 200;
+uint lunius_image_x = 400;
+uint lunius_image_y = 275;
 std::string lunius_sprite_sheet_resource = 
   "/home/jared/Games/Labyrinth/resources/sprites/4knut.png";
 uint lunius_num_walking_sprites = 4;
