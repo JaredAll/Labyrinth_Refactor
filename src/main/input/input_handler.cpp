@@ -47,7 +47,7 @@ InputEvent* InputHandler::handle_input()
     }
   }
   
-  return new InputEvent( x, y );
+  return new InputEvent(r_key, x, y );
 }
 
 bool InputHandler::escape( SDL_Event e )

@@ -22,6 +22,8 @@ public:
   
   CharacterState* left();
 
+  CharacterState* r_key();
+
   CharacterState* no_input();
 
 private:

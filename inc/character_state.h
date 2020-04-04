@@ -22,6 +22,10 @@ public:
     {
       next_state = this -> left();
     }
+    else if( event -> is_r_pressed())
+    {
+      next_state = this -> r_key();
+    }
     else
     {
       next_state = this -> no_input();
@@ -33,6 +37,8 @@ public:
   virtual CharacterState* left() = 0;
 
   virtual CharacterState* right() = 0;
+
+  virtual CharacterState* r_key() = 0;
 
   virtual CharacterState* no_input() = 0;
 

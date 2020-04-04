@@ -5,6 +5,7 @@
 #include <iostream>
 #include "character_state.h"
 #include "character.h"
+#include "recruiting_state.h"
 
 class WalkingState : public CharacterState
 {
@@ -17,6 +18,8 @@ public:
   CharacterState* right();
 
   CharacterState* left();
+
+  CharacterState* r_key();
 
   CharacterState* no_input();
 

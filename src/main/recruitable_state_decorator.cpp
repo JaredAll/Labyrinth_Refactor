@@ -12,24 +12,20 @@ RecruitableStateDecorator::RecruitableStateDecorator( Character* param_main_char
 
 void RecruitableStateDecorator::update( Character* character )
 {
-  character_state -> update( character );
-}
-
-CharacterState* RecruitableStateDecorator::handle_input( InputEvent* e )
-{
-  
   if( abs( main_character -> get_x() - character -> get_x() ) < recruit_distance )
   {
     prompt -> set_display( true );
     if( main_character -> is_recruiting() )
     {
-      character -> switch_state( new FollowingState( main_character ) );
+      cout << "recruited" << endl;
     }
   }
   else
   {
     prompt -> set_display( false );
   }
+
+  character_state -> update( character );
 }
 
 CharacterState* RecruitableStateDecorator::right()
@@ -40,6 +36,11 @@ CharacterState* RecruitableStateDecorator::right()
 CharacterState* RecruitableStateDecorator::left()
 {
   return new RecruitableStateDecorator( main_character, prompt, character_state -> left() );
+}
+
+CharacterState* RecruitableStateDecorator::r_key()
+{
+  return new RecruitableStateDecorator( main_character, prompt, character_state -> r_key() );
 }
 
 CharacterState* RecruitableStateDecorator::no_input()

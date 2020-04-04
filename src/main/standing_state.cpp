@@ -21,6 +21,11 @@ CharacterState* StandingState::left()
   return walkingState;
 }
 
+CharacterState* StandingState::r_key()
+{
+  return new RecruitingState();
+}
+
 CharacterState* StandingState::no_input()
 {
   return new StandingState();

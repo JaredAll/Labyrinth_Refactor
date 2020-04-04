@@ -15,6 +15,11 @@ CharacterState* RecruitingState::left()
   return this;
 }
 
+CharacterState* RecruitingState::r_key()
+{
+  return this;
+}
+
 CharacterState* RecruitingState::no_input()
 {
   return new StandingState();
