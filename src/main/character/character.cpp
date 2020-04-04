@@ -10,7 +10,7 @@ Character::Character( Sprite* body,
   x_pos = 0;
   y_pos = 0;
   stride = 1;
-  recruited = false;
+  recruiting = false;
   main_character = false;
   current_clip = walking_clips.at( 0 );
   state = new StandingState();
@@ -91,6 +91,11 @@ uint Character::get_speed()
   return speed;
 }
 
+void Character::set_speed( uint param_speed )
+{
+  speed = param_speed;
+}
+
 void Character::set_x( int x_param )
 {
   x_pos = x_param;
@@ -99,6 +104,16 @@ void Character::set_x( int x_param )
 int Character::get_x()
 {
   return x_pos;
+}
+
+bool Character::is_recruiting()
+{
+  return recruiting;
+}
+
+void Character::set_recruiting( bool param_recruiting )
+{
+  recruiting = param_recruiting;
 }
 
 void Character::face_right()

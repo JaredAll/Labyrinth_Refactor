@@ -34,6 +34,11 @@ void Camera::pan_left()
   }
 }
 
+void Camera::set_speed( uint param_speed )
+{
+  speed = param_speed;
+}
+
 void Camera::update( InputEvent* event )
 {
   int input = event -> get_x_input();

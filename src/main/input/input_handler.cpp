@@ -5,6 +5,7 @@ InputHandler::InputHandler()
   keyboard_state = SDL_GetKeyboardState( NULL );
   int x = 0;
   int y = 0;
+  bool r_key = false;
 }
 
 InputEvent* InputHandler::handle_input()
@@ -23,6 +24,11 @@ InputEvent* InputHandler::handle_input()
         x = -1;
       }
 
+      if( r_key_down( e ) )
+      {
+        r_key = true;
+      }
+
       if( escape( e ))
       {
         exit( 0 );
@@ -32,6 +38,7 @@ InputEvent* InputHandler::handle_input()
     if( e.type == SDL_KEYUP )
     {
       x = 0;
+      r_key = false;
     }
 
     if( e.type == SDL_QUIT )
@@ -59,4 +66,10 @@ bool InputHandler::left_arrow( SDL_Event e )
 {
   return e.key.keysym.sym ==
     SDLK_LEFT;
+}
+
+bool InputHandler::r_key_down( SDL_Event e )
+{
+  return e.key.keysym.sym ==
+    SDLK_r;
 }

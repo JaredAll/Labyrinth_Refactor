@@ -5,12 +5,14 @@ class InputEvent
 {
 public:
 
-  InputEvent( int x_input, int y_input );
+  InputEvent( bool r_key, int x_input, int y_input );
 
   int get_x_input();
   int get_y_input();
+  bool is_r_pressed();
   
 private:
+  bool r_pressed;
   int x_input;
   int y_input;
 };

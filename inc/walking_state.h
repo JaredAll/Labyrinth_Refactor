@@ -5,7 +5,6 @@
 #include <iostream>
 #include "character_state.h"
 #include "character.h"
-#include "standing_state.h"
 
 class WalkingState : public CharacterState
 {

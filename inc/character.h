@@ -59,14 +59,20 @@ public:
 
   uint get_speed();
 
+  void set_speed( uint speed );
+
   void set_x( int param_x );
 
   int get_x();
 
+  bool is_recruiting();
+
+  void set_recruiting( bool recruiting );
+
 private:
 
   string name;
-  bool recruited;
+  bool recruiting;
   bool main_character;
 
   int x_pos;

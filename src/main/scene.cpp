@@ -21,13 +21,16 @@ void Scene::update( InputEvent* event )
 
 void Scene::load_into_game( Game* game )
 {
+  uint speed = game -> get_speed();
+  
+  camera -> set_speed( speed );
+  main_character -> set_speed( speed );
+  for( Character* character : characters )
+  {
+    character -> set_speed( speed );
+  }
+
   game -> add_component( this );
-  // camera -> load_into_game( game );
-  // main_character -> load_into_game( game );
-  // for( Character* character : characters )
-  // {
-  //   character -> load_into_game( game );
-  // }
 }
 
 vector< RenderComponent* > Scene::get_render_components()

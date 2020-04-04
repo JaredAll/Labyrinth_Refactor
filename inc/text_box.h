@@ -14,11 +14,6 @@
 
 using namespace std;
 
-/**
- * a class to represent a text box
- * @author Jared Allen
- * @version 1 June 2019
- */
 class TextBox : public GameComponent
 {
 public:

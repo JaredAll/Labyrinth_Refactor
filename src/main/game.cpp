@@ -60,12 +60,16 @@ void Game::add_component( GameComponent* gameComponent )
 
 void Game::play()
 {
+  uint frames_per_second = 60;
+  uint milliseconds = 1000 / frames_per_second;
+
   while( true )
   {
     InputEvent* event = handle_input();
     update( event );
     render();
-    free( event );   
+    free( event );
+    usleep( milliseconds * 1000 );
   }
 }
 

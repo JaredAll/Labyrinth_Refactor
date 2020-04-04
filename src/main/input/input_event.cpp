@@ -1,9 +1,14 @@
 #include "input_event.h"
 
-InputEvent::InputEvent( int param_x_input, int param_y_input )
+InputEvent::InputEvent( bool param_r_pressed, int param_x_input, int param_y_input )
+  : x_input( param_x_input ),
+    y_input( param_y_input ),
+    r_pressed( param_r_pressed )
+{}
+
+bool InputEvent::is_r_pressed()
 {
-  x_input = param_x_input;
-  y_input = param_y_input;
+  return r_pressed;
 }
 
 int InputEvent::get_x_input()

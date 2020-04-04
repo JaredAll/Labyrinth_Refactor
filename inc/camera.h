@@ -20,6 +20,8 @@ public:
   
   void pan_left();
 
+  void set_speed( uint speed );
+
 private:
 
   std::vector< GameComponent* > components;

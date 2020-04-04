@@ -20,10 +20,13 @@ private:
 
   bool left_arrow( SDL_Event e );
 
+  bool r_key_down( SDL_Event e );
+
   SDL_Event e;
   const Uint8* keyboard_state;
   int x;
   int y;
+  bool r_key;
 };
 
 #endif
