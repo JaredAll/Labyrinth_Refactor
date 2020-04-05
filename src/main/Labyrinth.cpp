@@ -6,14 +6,21 @@
 #include "camera.h"
 #include "origin.h"
 #include "text_box.h"
+#include "game_state.h"
 
 using namespace std;
 
 int main( int argc, char* argv[] )
 {
   Game* labyrinth = new Game();
-  
   labyrinth -> initialize();
-  labyrinth -> load_scene( origin_config );
+  
+  Scene* origin = labyrinth -> create_scene( origin_config );
+  GameState* origin_state = new GameState( origin );
+  
+  origin_state -> set_next_state( origin_state );
+  origin_state -> set_previous_state( origin_state );
+
+  labyrinth -> set_state( origin_state );
   labyrinth -> play();
 }

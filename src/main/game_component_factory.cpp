@@ -24,10 +24,11 @@ Sprite* GameComponentFactory::initialize_sprite(
 Scene* GameComponentFactory::create_scene( SceneConfig configuration )
 {
   Character* main_character = create_character( *configuration.main_character_config );
+
   main_character -> set_main_character( true );
 
   vector< GameComponent* > camera_components;
-  
+
   vector< Character* > characters;
   for( CharacterConfig* characterConfig : configuration.characterConfigurations )
   {
@@ -55,7 +56,7 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
   }
 
   Camera* camera = new Camera( camera_components );
-
+  
   return new Scene( camera, main_character, characters );
 }
 

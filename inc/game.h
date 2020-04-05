@@ -20,10 +20,12 @@
 #include "input_handler.h"
 #include "input_event.h"
 #include <unistd.h>
+#include "game_state.h"
 
+class Scene;
 class Scenery;
-
 class GameComponentFactory;
+class GameState;
 
 class Game
 {
@@ -38,6 +40,10 @@ public:
   Scenery* create_scenery( SceneryConfig configuration );
 
   TextBox* create_text_box( TextBoxConfig configuration );
+
+  void set_state( GameState* state );
+
+  Scene* create_scene( SceneConfig configuration );
 
   void load_scene( SceneConfig configuration );
 

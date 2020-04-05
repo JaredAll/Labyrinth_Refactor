@@ -78,6 +78,16 @@ uint Game::get_speed()
   return speed;
 }
 
+void Game::set_state( GameState* state )
+{
+  state -> get_scene() -> load_into_game( this );
+}
+
+Scene* Game::create_scene( SceneConfig configuration )
+{
+  return gameComponentFactory -> create_scene( configuration );
+}
+
 void Game::load_scene( SceneConfig configuration )
 {
   Scene* scene = gameComponentFactory -> create_scene( configuration );
