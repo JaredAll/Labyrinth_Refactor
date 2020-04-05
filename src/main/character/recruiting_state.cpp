@@ -7,17 +7,17 @@ void RecruitingState::update( Character* character )
 
 CharacterState* RecruitingState::right()
 {
-  return this;
+  return new StandingState();
 }
 
 CharacterState* RecruitingState::left()
 {
-  return this;
+  return new StandingState();
 }
 
 CharacterState* RecruitingState::r_key()
 {
-  return this;
+  return new StandingState();
 }
 
 CharacterState* RecruitingState::no_input()

@@ -1,7 +1,8 @@
 #include "following_state.h"
 
-FollowingState::FollowingState( uint stride_count_param )
-  : stride_count( stride_count_param )
+FollowingState::FollowingState( uint stride_count_param, Character* param_leader )
+  : stride_count( stride_count_param ),
+    leader( param_leader )
 {
   facing_right = true;
   frames_per_stride = 12;
@@ -10,7 +11,6 @@ FollowingState::FollowingState( uint stride_count_param )
 
 void FollowingState::update( Character* character )
 {
-  Character* leader = character -> get_leader();
   int current_distance = abs( leader -> get_x() - character -> get_x() );
 
   if( abs( current_distance ) > follow_distance )
@@ -67,6 +67,11 @@ CharacterState* FollowingState::left()
 CharacterState* FollowingState::no_input()
 {
   return new StandingState();  
+}
+
+CharacterState* FollowingState::r_key()
+{
+  return new StandingState();
 }
 
 void FollowingState::set_facing_right( bool param_facing_right )

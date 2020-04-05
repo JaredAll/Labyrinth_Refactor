@@ -21,7 +21,7 @@
 #include "input_event.h"
 #include <unistd.h>
 #include "text_box.h"
-#include "recruitable_state_decorator.h"
+#include "recruitable_state.h"
 
 class TextBox;
 

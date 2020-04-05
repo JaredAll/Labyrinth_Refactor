@@ -1,5 +1,5 @@
-#ifndef RECRUITABLE_STATE_DECORATER_H
-#define RECRUITABLE_STATE_DECORATER_H
+#ifndef RECRUITABLE_STATE_H
+#define RECRUITABLE_STATE_H
 
 #include "character_state.h"
 #include "character.h"
@@ -8,13 +8,12 @@
 
 class TextBox;
 
-class RecruitableStateDecorator : public CharacterState
+class RecruitableState : public CharacterState
 {
 public:
 
-  RecruitableStateDecorator( Character* main_character,
-                             TextBox* param_prompt,
-                             CharacterState* character_state );
+  RecruitableState( Character* main_character,
+                    TextBox* param_prompt );
 
   void update( Character* character );
 
@@ -28,7 +27,6 @@ public:
 
 private:
 
-  CharacterState* character_state;
   TextBox* prompt;
   Character* main_character;
   uint recruit_distance;

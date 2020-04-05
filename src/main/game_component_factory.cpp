@@ -50,9 +50,8 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
 
   for( Character* character : characters )
   {
-    character -> switch_state( new RecruitableStateDecorator( main_character,
-                                                           recruit_text_box,
-                                                           character -> get_state() ) );
+    character -> switch_state( new RecruitableState( main_character,
+                                                     recruit_text_box ) );
   }
 
   Camera* camera = new Camera( camera_components );

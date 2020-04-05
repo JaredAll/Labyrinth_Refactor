@@ -11,7 +11,7 @@ class FollowingState : public CharacterState
 {
 public:
 
-  FollowingState( uint stride_count );
+  FollowingState( uint stride_count, Character* leader );
 
   void update( Character* character );
 
@@ -21,6 +21,8 @@ public:
 
   CharacterState* no_input();
 
+  CharacterState* r_key();
+
   void set_facing_right( bool facing_right );
 
 private:
@@ -29,6 +31,7 @@ private:
 
   void wait( Character* character );
 
+  Character* leader;
   bool facing_right;
   uint frames_per_stride;
   uint stride_count;
