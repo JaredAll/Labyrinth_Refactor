@@ -20,7 +20,7 @@ int main( int argc, char* argv[] )
   
   origin_state -> set_next_state( origin_state );
   origin_state -> set_previous_state( origin_state );
-
+  
   labyrinth -> set_state( origin_state );
   labyrinth -> play();
 }
