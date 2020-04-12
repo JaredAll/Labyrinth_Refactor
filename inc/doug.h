@@ -1,5 +1,8 @@
 #include "character_config.h"
 
+#ifndef DOUG_CONFIG
+#define DOUG_CONFIG
+
 uint doug_image_x = 400;
 uint doug_image_y = 300;
 std::string doug_sprite_sheet_resource = 
@@ -12,3 +15,5 @@ CharacterConfig doug_config = {
   doug_sprite_sheet_resource,
   doug_num_walking_sprites, doug_num_talking_sprites
 };
+
+#endif

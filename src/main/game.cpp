@@ -46,6 +46,18 @@ void Game::update( InputEvent* event )
   {
     components.at( i ) -> update( event );
   }
+  update_game_state();
+}
+
+void Game::update_game_state()
+{
+  GameState* next_state = state -> update();
+  if( next_state != state )
+  {
+    state = next_state;
+    components.clear();
+    state -> get_scene() -> load_into_game( this );
+  }
 }
 
 InputEvent* Game::handle_input()
@@ -80,6 +92,7 @@ uint Game::get_speed()
 
 void Game::set_state( GameState* state )
 {
+  this -> state = state;
   state -> get_scene() -> load_into_game( this );
 }
 

@@ -19,7 +19,7 @@ public:
 
   GameState* get_previous_state();
 
-  GameState* handle_boundary();
+  GameState* update();
 
 private:
   

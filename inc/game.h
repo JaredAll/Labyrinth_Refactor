@@ -61,6 +61,8 @@ private:
 
   InputEvent* handle_input();
 
+  void update_game_state();
+
   GameRenderer* renderer;
 
   SpriteClipper* clipper;
@@ -68,6 +70,8 @@ private:
   InputHandler* input_handler;
 
   GameComponentFactory* gameComponentFactory;
+
+  GameState* state;
 
   vector< GameComponent* > components;
 

@@ -1,5 +1,8 @@
 #include "character_config.h"
 
+#ifndef LUNIUS_CONFIG
+#define LUNIUS_CONFIG
+
 uint lunius_image_x = 400;
 uint lunius_image_y = 275;
 std::string lunius_sprite_sheet_resource = 
@@ -12,3 +15,5 @@ CharacterConfig lunius_config = {
   lunius_sprite_sheet_resource,
   lunius_num_walking_sprites, lunius_num_talking_sprites
 };
+
+#endif

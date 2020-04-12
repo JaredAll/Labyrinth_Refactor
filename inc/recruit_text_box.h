@@ -1,5 +1,8 @@
 #include "text_box_config.h"
 
+#ifndef RECRUIT_TEXT_CONFIG
+#define RECRUIT_TEXT_CONFIG
+
 uint recruit_text_x = 300;
 uint recruit_text_y = 400;
 uint recruit_text_w = 100;
@@ -17,3 +20,5 @@ TextBoxConfig recruit_text_config = {
   recruit_text_font,
   recruit_text_font_size
 };
+
+#endif

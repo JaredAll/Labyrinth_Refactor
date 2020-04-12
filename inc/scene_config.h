@@ -7,6 +7,8 @@ struct SceneConfig
   std::vector< CharacterConfig* > characterConfigurations;
   std::vector< SceneryConfig* > sceneryConfigurations;
   std::vector< TextBoxConfig* > textBoxConfigurations;
+  int left_boundary;
+  int right_boundary;
 };
 
 #endif

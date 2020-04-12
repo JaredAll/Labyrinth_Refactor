@@ -22,6 +22,7 @@
 #include <unistd.h>
 #include "text_box.h"
 #include "recruitable_state.h"
+#include <memory>
 
 class TextBox;
 

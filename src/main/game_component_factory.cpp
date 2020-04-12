@@ -57,7 +57,11 @@ Scene* GameComponentFactory::create_scene( SceneConfig configuration )
 
   Camera* camera = new Camera( camera_components );
   
-  return new Scene( camera, main_character, characters );
+  return new Scene( camera,
+                    main_character,
+                    characters,
+                    configuration.left_boundary,
+                    configuration.right_boundary );
 }
 
 Character* GameComponentFactory::create_character( CharacterConfig configuration )

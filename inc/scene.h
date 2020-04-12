@@ -4,6 +4,7 @@
 #include "camera.h"
 #include "character.h"
 #include "game.h"
+#include "scene_state.h"
 
 class Game;
 
@@ -13,7 +14,9 @@ public:
 
   Scene( Camera* camera,
          Character* main_character,
-         vector< Character* > characters );
+         vector< Character* > characters,
+         int left_boundary,
+         int right_boundary );
 
   void update( InputEvent* event );
 
@@ -21,12 +24,23 @@ public:
 
   vector< RenderComponent* > get_render_components();
 
+  SceneState* get_state();
+
 private:
   Camera* camera;
   
   Character* main_character;
 
   vector< Character* > characters;
+  
+  SceneState state;
+
+  int left_boundary;
+  int right_boundary;
+
+  void handle_boundary();
+  
+  void update_entities( InputEvent* event );
 };
 
 #endif

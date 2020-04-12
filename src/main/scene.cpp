@@ -2,21 +2,55 @@
 
 Scene::Scene( Camera* param_camera,
               Character* param_main_character,
-              vector< Character* > param_characters )
+              vector< Character* > param_characters,
+              int param_left_boundary,
+              int param_right_boundary )
   : camera( param_camera ),
     main_character( param_main_character ),
-    characters( param_characters )
+    characters( param_characters ),
+    left_boundary( param_left_boundary ),
+    right_boundary( param_right_boundary )
 {
+  state = SceneState::resume;
 }
 
 void Scene::update( InputEvent* event )
+{
+  update_entities( event );
+  handle_boundary();
+}
+
+void Scene::update_entities( InputEvent* event )
 {
   camera -> update( event );
   main_character -> update( event );
   for( Character* character : characters )
   {
     character -> update( event );
+  }  
+}
+
+void Scene::handle_boundary()
+{
+  int main_character_position = main_character -> get_x();
+  if( main_character_position > right_boundary )
+  {
+    state = SceneState::exit_right;
   }
+  else if( main_character_position < left_boundary )
+  {
+    state = SceneState::exit_left;
+  }
+  else
+  {
+    state = SceneState::resume;
+  }
+  cout << main_character_position << endl;
+}
+
+SceneState* Scene::get_state()
+{
+  return &state;
 }
 
 void Scene::load_into_game( Game* game )

@@ -5,9 +5,24 @@ GameState::GameState( Scene* param_scene)
 {
 }
 
-GameState* GameState::handle_boundary()
+GameState* GameState::update()
 {
-  return this;
+  SceneState scene_state = *( scene -> get_state() );
+  GameState* state;
+  if( scene_state == SceneState::resume )
+  {
+    state = this;
+  }
+  else if( scene_state == SceneState::exit_left )
+  {
+    state = previous_state;
+  }
+  else
+  {
+    state = next_state;
+  }
+  cout << scene_state << endl;
+  return state;
 }
 
 Scene* GameState::get_scene()
