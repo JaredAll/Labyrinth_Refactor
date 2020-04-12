@@ -11,14 +11,15 @@
 std::vector< CharacterConfig* > characterConfigurations = { &lunius_config };
 std::vector< SceneryConfig* > sceneryConfigurations = { &sky_config, &grass_config };
 std::vector< TextBoxConfig* > textBoxConfigurations = { & recruit_text_config };
+int origin_width = 1000;
 
 SceneConfig origin_config = {
   &doug_config,
   characterConfigurations,
   sceneryConfigurations,
   textBoxConfigurations,
-  -100,
-  100
+  -origin_width,
+  origin_width
 };
 
 #endif

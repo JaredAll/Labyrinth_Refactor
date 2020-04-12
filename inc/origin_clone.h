@@ -11,14 +11,15 @@
 std::vector< CharacterConfig* > cloneCharacterConfigurations = {};
 std::vector< SceneryConfig* > cloneSceneryConfigurations = { &sky_config, &grass_config };
 std::vector< TextBoxConfig* > cloneTextBoxConfigurations = { & recruit_text_config };
+int origin_clone_width = 1000;
 
 SceneConfig origin_clone_config = {
   &doug_config,
   cloneCharacterConfigurations,
   cloneSceneryConfigurations,
   cloneTextBoxConfigurations,
-  -100,
-  100
+  -origin_clone_width,
+  origin_clone_width
 };
 
 #endif

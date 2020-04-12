@@ -45,7 +45,6 @@ void Scene::handle_boundary()
   {
     state = SceneState::resume;
   }
-  cout << main_character_position << endl;
 }
 
 SceneState* Scene::get_state()

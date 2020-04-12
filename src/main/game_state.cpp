@@ -21,7 +21,6 @@ GameState* GameState::update()
   {
     state = next_state;
   }
-  cout << scene_state << endl;
   return state;
 }
 
