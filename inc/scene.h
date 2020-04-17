@@ -24,7 +24,19 @@ public:
 
   vector< RenderComponent* > get_render_components();
 
+  void set_state( SceneState state );
+
   SceneState* get_state();
+
+  Camera* get_camera();
+
+  Character* get_main_character();
+
+  vector< Character* > get_characters();
+
+  int get_left_boundary();
+
+  int get_right_boundary();
 
 private:
   Camera* camera;
@@ -38,9 +50,9 @@ private:
   int left_boundary;
   int right_boundary;
 
-  void handle_boundary();
+  virtual void handle_boundary();
   
-  void update_entities( InputEvent* event );
+  virtual void update_entities( InputEvent* event );
 };
 
 #endif

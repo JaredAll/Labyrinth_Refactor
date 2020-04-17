@@ -21,6 +21,9 @@ ostream& operator<<( ostream& output_stream, SceneState& state )
   case resume:
     output_stream << "resume" << endl;
     break;
+  case boundary:
+    output_stream << "boundary" << endl;
+    break;
   }
   return output_stream;
 }

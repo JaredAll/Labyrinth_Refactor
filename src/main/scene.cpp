@@ -52,6 +52,11 @@ SceneState* Scene::get_state()
   return &state;
 }
 
+void Scene::set_state( SceneState param_state )
+{
+  state = param_state;
+}
+
 void Scene::load_into_game( Game* game )
 {
   uint speed = game -> get_speed();
@@ -82,4 +87,29 @@ vector< RenderComponent* > Scene::get_render_components()
   }
 
   return render_components;
+}
+
+Camera* Scene::get_camera()
+{
+  return camera;
+}
+
+Character* Scene::get_main_character()
+{
+  return main_character;
+}
+
+vector< Character* > Scene::get_characters()
+{
+  return characters;
+}
+
+int Scene::get_left_boundary()
+{
+  return left_boundary;
+}
+
+int Scene::get_right_boundary()
+{
+  return right_boundary;
 }

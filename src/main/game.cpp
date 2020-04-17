@@ -42,11 +42,11 @@ void Game::render()
 
 void Game::update( InputEvent* event )
 {
+  update_game_state();
   for( uint i = 0; i < components.size(); i++ )
   {
     components.at( i ) -> update( event );
   }
-  update_game_state();
 }
 
 void Game::update_game_state()

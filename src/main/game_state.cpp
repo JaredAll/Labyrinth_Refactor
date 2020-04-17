@@ -17,6 +17,17 @@ GameState* GameState::update()
   {
     state = previous_state;
   }
+  else if( scene_state == SceneState::boundary )
+  {
+    if( this == next_state )
+    {
+      state = previous_state;
+    }
+    else
+    {
+      state = next_state;
+    }
+  }
   else
   {
     state = next_state;
