@@ -3,6 +3,7 @@
 
 Camera::Camera( std::vector< GameComponent* > param_components )
 {
+  speed = 0;
   components = param_components;
 }
 
@@ -14,22 +15,22 @@ void Camera::load_into_game( Game* game )
 
 void Camera::pan_right()
 {
-  for( uint i = 0; i < components.size(); i++ )
+  for(GameComponent* component : components)
   {
-    if( components.at( i ) -> is_panning() )
+    if( component -> is_panning() )
     {
-      components.at( i ) -> pan_right( speed ); 
+      component -> pan_right( speed );
     }
   }
 }
 
 void Camera::pan_left()
 {
-  for( uint i = 0; i < components.size(); i++ )
+  for( GameComponent* component : components )
   {
-    if( components.at( i ) -> is_panning() )
+    if( component -> is_panning() )
     {
-      components.at( i ) -> pan_left( speed );
+      component -> pan_left( speed );
     }
   }
 }
@@ -56,14 +57,14 @@ vector< RenderComponent* > Camera::get_render_components()
 {
   vector< RenderComponent* > renderComponents;
 
-  for( uint i = 0; i < components.size(); i++ )
+  for( GameComponent* component : components )
   {
     vector< RenderComponent* > subRenderComponents =
-      components.at( i ) -> get_render_components();
-    
-    for( uint j = 0; j < subRenderComponents.size(); j++ )
+      component -> get_render_components();
+
+    for( RenderComponent* subRenderComponent : subRenderComponents )
     {
-      renderComponents.push_back( subRenderComponents.at( j ) );
+      renderComponents.push_back( subRenderComponent );
     }
   }
 

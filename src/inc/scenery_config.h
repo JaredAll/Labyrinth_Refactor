@@ -8,7 +8,7 @@ struct SceneryConfig
 
   std::string scenery_resource;
 
-  uint horizontal_repititions;
+  int horizontal_repititions;
 };
 
 #endif

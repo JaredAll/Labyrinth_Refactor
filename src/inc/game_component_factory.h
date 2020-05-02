@@ -36,11 +36,11 @@ public:
   
   GameComponentFactory( GameRenderer* renderer, SpriteClipper* clipper );
 
-  Character* create_character( CharacterConfig configuration );
+  Character* create_character( CharacterConfig& configuration );
 
   Scenery* create_scenery( SceneryConfig configuration );
 
-  Scene* create_scene( SceneConfig configuration );
+  Scene* create_scene( SceneConfig& configuration );
 
   TextBox* create_text_box( TextBoxConfig configuration );
 

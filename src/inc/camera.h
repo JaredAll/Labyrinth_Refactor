@@ -8,13 +8,13 @@ class Camera : public GameComponent
 {
 public:
 
-  Camera( std::vector< GameComponent* > components );
+  explicit Camera( std::vector< GameComponent* > components );
 
-  vector< RenderComponent* > get_render_components();
+  vector< RenderComponent* > get_render_components() override;
 
-  void load_into_game( Game* game );
+  void load_into_game( Game* game ) override;
 
-  void update( InputEvent* event );
+  void update( InputEvent* event ) override;
 
   void pan_right();
   
