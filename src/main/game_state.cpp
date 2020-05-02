@@ -32,7 +32,21 @@ GameState* GameState::update()
   {
     state = next_state;
   }
+  reset_scene( state, scene_state );
   return state;
+}
+
+void GameState::reset_scene( GameState* state, SceneState& scene_state )
+{
+  Scene* scene = state -> get_scene();
+  if( scene_state == SceneState::exit_left )
+  {
+    scene -> reset_right();
+  }
+  else if( scene_state == SceneState::exit_right )
+  {
+    scene -> reset_left();
+  }
 }
 
 Scene* GameState::get_scene()

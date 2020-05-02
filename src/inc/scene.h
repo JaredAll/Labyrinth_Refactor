@@ -24,6 +24,10 @@ public:
 
   vector< RenderComponent* > get_render_components();
 
+  void reset_right();
+
+  void reset_left();
+
   void set_state( SceneState state );
 
   SceneState* get_state();

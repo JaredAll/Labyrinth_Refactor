@@ -89,6 +89,16 @@ vector< RenderComponent* > Scene::get_render_components()
   return render_components;
 }
 
+void Scene::reset_right()
+{
+  main_character -> set_x( right_boundary );
+}
+
+void Scene::reset_left()
+{
+  main_character -> set_x( left_boundary );
+}
+
 Camera* Scene::get_camera()
 {
   return camera;

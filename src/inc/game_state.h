@@ -2,6 +2,7 @@
 #define GAME_STATE_H
 
 #include "scene.h"
+#include "scene_state.h"
 
 class GameState
 {
@@ -22,7 +23,9 @@ public:
   GameState* update();
 
 private:
-  
+
+  void reset_scene( GameState* state, SceneState& scene_state );
+
   Scene* scene;
 
   GameState* next_state;
