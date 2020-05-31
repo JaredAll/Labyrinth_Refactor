@@ -4,4 +4,5 @@
 **.files
 cmake-build-debug/**
 .clangd/**
+.idea/**
 TAGS
