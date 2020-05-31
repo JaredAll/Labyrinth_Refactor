@@ -19,7 +19,7 @@ int main( int argc, char* argv[] )
   
   Scene* origin = labyrinth -> create_scene( origin_config );
   Scene* origin_end = new BoundaryScene( origin, true );
-  GameState* origin_state = new GameState( origin );  
+  GameState* origin_state = new GameState( origin );
   GameState* origin_end_state = new GameState( origin_end );
 
   Scene* origin_clone = labyrinth -> create_scene( origin_clone_config );

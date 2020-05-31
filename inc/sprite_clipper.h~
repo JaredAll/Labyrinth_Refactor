@@ -1,6 +1,0 @@
-#ifndef SPRITE_CLIPPER
-#define SPRITE_CLIPPER
-
-#include <SDL.h>
-#include <SDL_image.h>
-#include <vector>

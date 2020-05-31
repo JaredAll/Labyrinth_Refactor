@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Labyrinth"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/jared/Games/Labyrinth/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/jared/Games/Labyrinth/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Labyrinth">
+				<Option output="/home/jared/Games/Labyrinth/cmake-build-debug/Labyrinth" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jared/Games/Labyrinth/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/jared/Games/Labyrinth/src/inc"/>
+					<Add directory="/home/jared/Games/Labyrinth/src/main"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 Labyrinth"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Labyrinth/fast">
+				<Option output="/home/jared/Games/Labyrinth/cmake-build-debug/Labyrinth" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jared/Games/Labyrinth/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/jared/Games/Labyrinth/src/inc"/>
+					<Add directory="/home/jared/Games/Labyrinth/src/main"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 Labyrinth/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/jared/Games/Labyrinth/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jared/Games/Labyrinth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/Labyrinth.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/boundary_scene.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/camera.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/character/character.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/character/following_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/character/recruiting_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/character/walking_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/easy_sdl.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/game.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/game_component_factory.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/game_renderer.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/game_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/glyph.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/input/input_event.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/input/input_handler.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/recruitable_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/scene.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/scene_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/scenery.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/sprite.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/sprite_clipper.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/standing_state.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/src/main/text_box.cpp">
+			<Option target="Labyrinth"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/jared/Games/Labyrinth/../../../../usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

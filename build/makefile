@@ -3,7 +3,7 @@ SDL_LIB = -L/usr/local/lib -lSDL2 -lSDL2_image -lSDL2_ttf
 TEST_LIB = -lcppunit
 FAKEIT_INCLUDE = -I/home/jared/cpp_dev/FakeIt/single_header/standalone
 SDL_INCLUDE = -I/usr/include/SDL2
-INC_INCLUDE = -I../inc
+INC_INCLUDE = -I../src/inc
 CXX_FLAGS = -Werror -pedantic-errors -O0 -Wno-c++98-compat-pedantic -Wno-padded -std=c++14 $(SDL_INCLUDE) $(INC_INCLUDE) $(FAKEIT_INCLUDE)
 LINKER_FLAGS = $(SDL_LIB) $(TEST_LIB)
 OBJ_FILES = sprite.o easy_sdl.o game_renderer.o game.o character.o sprite_clipper.o \

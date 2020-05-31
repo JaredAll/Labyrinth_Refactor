@@ -84,7 +84,7 @@ Character *GameComponentFactory::create_character( CharacterConfig &configuratio
           face,
           configuration.num_talking_sprites );
 
-  auto character = new Character{ body,
+  Character* character = new Character{ body,
                                   walking_clips,
                                   face,
                                   talking_clips };

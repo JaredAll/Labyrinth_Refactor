@@ -1,4 +1,5 @@
 **.*~
+/inc/**.*~
 **.out
 **.files
 TAGS
