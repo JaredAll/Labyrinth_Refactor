@@ -12,11 +12,11 @@ class Scenery : public GameComponent
 public:
   Scenery( vector< Sprite* > sprites );
 
-  void load_into_game( Game* game );
+  void load_into_game( Game* game ) override;
 
-  void update( InputEvent* event );
+  void update( InputEvent* event ) override;
 
-  vector< RenderComponent* > get_render_components();
+  vector< RenderComponent* > get_render_components() override;
 
 private:
   vector< Sprite* > sprites;

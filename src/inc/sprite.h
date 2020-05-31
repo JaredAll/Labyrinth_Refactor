@@ -34,13 +34,13 @@ public:
    * method to change source rectangle
    * @param source the new source
    */
-  void set_clip( SDL_Rect *source );
+  void set_clip( SDL_Rect *source ) override;
 
   /**
    * method to change destination rectangle
    * @param destination the new destination
    */
-  void set_destination( SDL_Rect *destination );
+  void set_destination( SDL_Rect *destination ) override;
 
   /** 
    * method to change sprite position
@@ -64,30 +64,30 @@ public:
   /** 
    * method to get sprite x position
    */
-  int get_x();
+  int get_x() override;
 
   /** 
    * method to get sprite y position
    */
-  int get_y();
+  int get_y() override;
 
-  void set_x( int x );
+  void set_x( int x ) override;
 
-  void set_y( int y );
+  void set_y( int y ) override;
 
   int get_h();
 
   int get_w();
   
-  SDL_Texture* getTexture();
+  SDL_Texture* getTexture() const override;
 
-  SDL_Rect* getDestination();
+  SDL_Rect* getDestination() const override;
 
-  SDL_Rect* getClip();
+  SDL_Rect* getClip() const override;
 
-  bool is_flipped();
+  bool is_flipped() override;
 
-  void set_flipped( bool flipped );
+  void set_flipped( bool flipped ) override;
 
 private:
 

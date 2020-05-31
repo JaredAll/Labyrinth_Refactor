@@ -10,11 +10,11 @@ class RenderComponent
 {
 public:
   
-  virtual SDL_Texture* getTexture() = 0;
+  virtual SDL_Texture* getTexture() const = 0; 
 
-  virtual SDL_Rect* getDestination() = 0;
+  virtual SDL_Rect* getDestination() const = 0;
 
-  virtual SDL_Rect* getClip() = 0;
+  virtual SDL_Rect* getClip() const = 0;
 
   virtual void set_clip( SDL_Rect *clip ) = 0;
 

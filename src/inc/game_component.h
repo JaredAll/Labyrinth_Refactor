@@ -51,7 +51,7 @@ public:
     panning = is_panning;
   }
 
-  virtual bool is_panning()
+  virtual bool is_panning() const
   {
     return panning;
   }

@@ -9,4 +9,4 @@ public:
   
   virtual void execute( Character* character ) = 0;
   
-}
+};

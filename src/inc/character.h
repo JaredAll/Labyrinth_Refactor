@@ -26,16 +26,16 @@ public:
    * @param full_body the full body sprite
    * @param torso the torso sprite
    */
-  Character( Sprite* body,
+  explicit Character( Sprite* body,
              vector< SDL_Rect* > walking_clips,
              Sprite* face,
              vector< SDL_Rect* > talking_clips );
 
-  void update( InputEvent* event );
+  void update( InputEvent* event ) override;
 
-  void setRenderComponent( RenderComponent* renderComponent );
+  void setRenderComponent( RenderComponent* renderComponent ) override;
 
-  void load_into_game( Game* game );
+  void load_into_game( Game* game ) override;
 
   void set_state( CharacterState* state );
 

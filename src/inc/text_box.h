@@ -20,15 +20,15 @@ public:
 
   TextBox( vector< Glyph* > letters );
 
-  void update( InputEvent* e );
+  void update( InputEvent* e ) override;
 
-  void load_into_game( Game* game );
+  void load_into_game( Game* game ) override;
 
   void set_display( bool display );
 
   bool will_display();
 
-  vector< RenderComponent* > get_render_components();
+  vector< RenderComponent* > get_render_components() override;
 
 private:
 

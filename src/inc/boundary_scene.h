@@ -12,7 +12,7 @@ class BoundaryScene : public Scene
 {
 public:
 
-  BoundaryScene( Scene* scene, bool left_boundary );
+  explicit BoundaryScene( Scene* scene, bool left_boundary );
 
 private:
   void handle_boundary() override;

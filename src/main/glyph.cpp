@@ -6,17 +6,17 @@ Glyph::Glyph( SDL_Rect* param_destination, SDL_Texture* param_texture )
   texture = param_texture;
 }
 
-SDL_Texture* Glyph::getTexture()
+SDL_Texture* Glyph::getTexture() const
 {
   return texture;
 }
 
-SDL_Rect* Glyph::getDestination()
+SDL_Rect* Glyph::getDestination() const
 {
   return destination;
 }
 
-SDL_Rect* Glyph::getClip()
+SDL_Rect* Glyph::getClip() const
 {
   return NULL;
 }

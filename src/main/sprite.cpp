@@ -60,17 +60,17 @@ void Sprite::reset_position()
   
 }
 
-SDL_Texture* Sprite::getTexture()
+SDL_Texture* Sprite::getTexture() const
 {
   return sprite_texture;
 }
 
-SDL_Rect* Sprite::getDestination()
+SDL_Rect* Sprite::getDestination() const
 {
   return destination;
 }
 
-SDL_Rect* Sprite::getClip()
+SDL_Rect* Sprite::getClip() const
 {
   return clip;
 }

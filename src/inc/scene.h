@@ -18,11 +18,11 @@ public:
          int left_boundary,
          int right_boundary );
 
-  void update( InputEvent* event );
+  void update( InputEvent* event ) override;
 
-  void load_into_game( Game* game );
+  void load_into_game( Game* game ) override;
 
-  vector< RenderComponent* > get_render_components();
+  vector< RenderComponent* > get_render_components() override;
 
   void reset_right();
 

@@ -14,29 +14,29 @@ public:
 
   Glyph( SDL_Rect* destination, SDL_Texture* texture );
 
-  SDL_Texture* getTexture();
+  SDL_Texture* getTexture() const override;
   
-  SDL_Rect* getDestination();
+  SDL_Rect* getDestination() const override;
   
-  SDL_Rect* getClip();
+  SDL_Rect* getClip() const override;
   
-  void set_clip( SDL_Rect *clip );
+  void set_clip( SDL_Rect *clip ) override;
   
-  void set_destination( SDL_Rect* destination );
+  void set_destination( SDL_Rect* destination ) override;
 
-  void calculate_destination( uint distance );
+  void calculate_destination( uint distance ) override;
 
-  int get_x();
+  int get_x() override;
   
-  int get_y();
+  int get_y() override;
   
-  void set_x( int x );
+  void set_x( int x ) override;
   
-  void set_y( int y );
+  void set_y( int y ) override;
   
-  bool is_flipped();
+  bool is_flipped() override;
   
-  void set_flipped( bool flipped );
+  void set_flipped( bool flipped ) override;
 
 private:
   
