@@ -1,3 +1,0 @@
-/home/jared/Games/Labyrinth/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jared/Games/Labyrinth/cmake-build-debug/CMakeFiles/Labyrinth.dir
-/home/jared/Games/Labyrinth/cmake-build-debug/CMakeFiles/edit_cache.dir

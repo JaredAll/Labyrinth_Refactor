@@ -2,4 +2,6 @@
 /inc/**.*~
 **.out
 **.files
+cmake-build-debug/**
+.clangd/**
 TAGS
